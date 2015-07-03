@@ -1,0 +1,143 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400);
+@import url(http://fonts.googleapis.com/css?family=Crimson+Text:700);
+
+body {
+    max-width: 100%;
+    margin: 1% 1%;
+    font: normal normal normal 18px/1.6em 'Open Sans', sans-serif;
+    color: #333;
+}
+
+@media (min-width: 720px) {
+    body {
+        max-width: 720px;
+        margin: 1% auto;
+    }
+}
+
+.title {
+    padding: .5em 0;
+    color: black;
+}
+
+.abstract {
+    width: 80%;
+    margin: auto;
+    font-style: italic;
+}
+
+.abstract p:last-of-type:before {
+    content: "    ";
+    white-space: pre;
+}
+
+.status {
+    font-size: 14px;
+    margin-top: 2em;
+}
+
+.creator {
+    float: right;
+}
+
+.src {
+    padding: 10px 5px;
+    font-size: 14px;
+    line-height: 1.2em;
+    background-color: #EEE;
+}
+
+[class^="section-number-"] {
+    margin-right: .5em;
+}
+
+#table-of-contents {
+    font-size: 16px;
+}
+
+#bibliography {
+    font-size: 14px;
+}
+
+#footnotes {
+    font-size: 14px;
+}
+
+.footpara {
+    display: inline-block;
+    margin: .2em auto;
+}
+
+.footdef sup {
+    padding-right: .5em;
+}
+
+/* --------------------------------------------------------------------
+ * element styles
+ * --------------------------------------------------------------------
+*/
+
+a {
+    color: #527d9a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #003355;
+    border-bottom: 1px dotted;
+}
+
+p img {
+    vertical-align: middle;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: #A5573E;
+    font-family: 'Crimson Text', serif;
+}
+
+table {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+
+thead {
+    border-bottom: 2px solid;
+}
+
+table td + td, table th + th {
+    border-left: 1px solid gray;
+}
+
+table tr {
+    border-top: 1px solid lightgray;
+}
+
+td,th {
+    padding: .2em 1em;
+}
+
+code {
+    padding: 0px 5px 2px;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    color: #333;
+    font-size: 16px;
+}
+
+hr {
+    display: block; height: 1px;
+    border: 0; border-top: 1px solid #ccc;
+    margin: 1em 0; padding: 0;
+}
+
+blockquote {
+    margin: 1em 2em;
+    padding-left: 1em;
+    border-left: 3px solid #ccc;
+}
