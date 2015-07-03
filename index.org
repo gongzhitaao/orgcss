@@ -1,8 +1,8 @@
 #+TITLE: CSS for Org-exported HTML
 #+OPTIONS: toc:nil num:4 H:4 ^:nil
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/css/normalize.css"/>
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/org.css"/>
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css"/>
 #+MACRO: TeX @@html:<span class="tex">T<sub>e</sub>X</span>@@
 #+MACRO: LaTeX @@html:<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>@@
 #+MACRO: kbd @@html:<kbd>$1</kbd>@@
@@ -119,8 +119,8 @@ brevity.
    #+BEGIN_SRC org
 ,#+TITLE: Article Title Goes Here
 ,#+OPTIONS: toc:nil num:t tex:dvipng
-,#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/css/normalize.css"/>
-,#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/org.css"/>
+,#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+,#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css"/>
 
 # Separate the title with the content
 -----

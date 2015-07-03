@@ -2,13 +2,13 @@
 <html>
 <head>
 <title>CSS for Org-exported HTML</title>
-<!-- 2015-07-03 Fri 16:10 -->
+<!-- 2015-07-03 Fri 16:33 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="Zhitao Gong">
-<link rel="stylesheet" type="text/css" href="/css/normalize.css"/>
-<link rel="stylesheet" type="text/css" href="/org.css"/>
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="org.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
 <script type="text/javascript">
 <!--/*--><![CDATA[/*><!--*/
@@ -147,6 +147,11 @@ the default style provided by org html exporter is simple <i>boring</i>.
 So I decide to tweak the stylesheet a little bit to make it <i>clean</i>,
 <i>simple</i> and more <i>eye appealing</i>.
 </p>
+
+<p>
+Souce code of this file is available at
+<a href="https://github.com/gongzhitaao/orgcss">https://github.com/gongzhitaao/orgcss</a>.
+</p>
 </div>
 </div>
 
@@ -156,12 +161,13 @@ So I decide to tweak the stylesheet a little bit to make it <i>clean</i>,
 
 <p>
 Publishing with org mode can be achieved as simple as a few
-keystrokes (say <code>C-c C-e h h</code> for html exporting and <code>C-c C-e l p</code>
-for pdf exporting).  We omit the publishing configuration as the
-main goal of this article is to demo my stylesheet.  The process can
-be meticulously tweaked following the <a href="http://orgmode.org/manual/Publishing.html#Publishing">instruction here.</a>  Actually in
-my current setup, no tweaks and special configurations are needed.
-All remains default and works out of the box.
+keystrokes (say <kbd>C-c C-e h h</kbd> for html exporting and
+<kbd>C-c C-e l p</kbd> for pdf exporting).  We omit the publishing
+configuration as the main goal of this article is to demo my
+stylesheet.  The process can be meticulously tweaked following the
+<a href="http://orgmode.org/manual/Publishing.html#Publishing">instruction here.</a>  Actually in my current setup, no tweaks and
+special configurations are needed.  All remains default and works
+out of the box.
 </p>
 </div>
 
@@ -238,8 +244,8 @@ The following is my org file template for blogging.
 
 <pre class="src src-org"><span style="color: #babdb6;">#+TITLE:</span> <span style="color: #729fcf; font-size: 140%; font-weight: bold;">Article Title Goes Here</span>
 <span style="color: #babdb6; font-style: italic;">#+OPTIONS: toc:nil num:t tex:dvipng</span>
-<span style="color: #babdb6; font-style: italic;">#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"/&gt;</span>
-<span style="color: #babdb6; font-style: italic;">#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="/org.css"/&gt;</span>
+<span style="color: #babdb6; font-style: italic;">#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="css/normalize.css"/&gt;</span>
+<span style="color: #babdb6; font-style: italic;">#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="org.css"/&gt;</span>
 
 <span style="color: #babdb6; font-style: italic;"># Separate the title with the content</span>
 -----
@@ -459,25 +465,12 @@ possible.  Otherwise, hacking some post-processing code is
 necessary.
 </p>
 
+</div>
+
 <hr >
-</div>
-</div>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
-For note keeping, <a href="http://jblevins.org/projects/deft/">Deft</a> with Orgmode make a cute couple.
-</p></div>
-
-<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
-A <a href="http://doc.norang.ca/org-mode.html">great article</a> elaborates on this.
-</p>
 
 <div id="bibliography">
 <h2>References</h2>
-
-</div>
 <table>
 
 <tr valign="top">
@@ -507,13 +500,28 @@ John Gruber.
 
 </td>
 </tr>
-</table></div>
+</table>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
+For note keeping, <a href="http://jblevins.org/projects/deft/">Deft</a> with Orgmode make a cute couple.
+</p></div>
+
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
+A <a href="http://doc.norang.ca/org-mode.html">great article</a> elaborates on this.
+</p>
+
+</div>
 
 
 </div>
 </div></div>
 <div id="postamble" class="status">
-<a class="author" href="http://gongzhitaao.org">Zhitao Gong</a> / <span class="date">2015-07-03 Fri 16:10</span><span class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</span>
+<a class="author" href="http://gongzhitaao.org">Zhitao Gong</a> / <span class="date">2015-07-03 Fri 16:33</span><span class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</span>
 </div>
 </body>
 </html>
