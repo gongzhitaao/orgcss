@@ -96,6 +96,10 @@ h1,h2,h3,h4,h5,h6 {
     font-family: 'Crimson Text', serif;
 }
 
+h5,h6 {
+    font-size: 1em;
+}
+
 table {
     border-top: 2px solid;
     border-bottom: 2px solid;
