@@ -6,6 +6,17 @@ body {
     margin: 1% 1%;
     font: normal normal normal 18px/1.6em 'Open Sans', sans-serif;
     color: #333;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-variant-ligatures: common-ligatures;
+    font-variant-ligatures: common-ligatures;
+
+    text-rendering: optimizeLegibility;
+    -moz-font-feature-settings: "kern=1";
+    -webkit-font-feature-settings: "kern";
+    -moz-font-feature-settings: "kern";
+    font-feature-settings: "kern";
+    font-kerning: normal;
 }
 
 @media (min-width: 720px) {
