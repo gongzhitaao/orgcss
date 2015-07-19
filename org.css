@@ -6,17 +6,6 @@ body {
     margin: 1% 1%;
     font: normal normal normal 18px/1.6em 'Open Sans', sans-serif;
     color: #333;
-
-    text-rendering: optimizeLegibility;
-    -webkit-font-variant-ligatures: common-ligatures;
-    font-variant-ligatures: common-ligatures;
-
-    text-rendering: optimizeLegibility;
-    -moz-font-feature-settings: "kern=1";
-    -webkit-font-feature-settings: "kern";
-    -moz-font-feature-settings: "kern";
-    font-feature-settings: "kern";
-    font-kerning: normal;
 }
 
 @media (min-width: 720px) {
@@ -55,7 +44,12 @@ body {
     padding: 10px 5px;
     font-size: 14px;
     line-height: 1.2em;
-    background-color: #EEE;
+}
+
+.org-src-container {
+    border-top: 1px dashed #555;
+    border-bottom: 1px dashed #555;
+    margin: 10px auto;
 }
 
 [class^="section-number-"] {
@@ -104,7 +98,7 @@ p img {
 
 h1,h2,h3,h4,h5,h6 {
     color: #A5573E;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Crimson Text', sans-serif;
 }
 
 h5,h6 {
