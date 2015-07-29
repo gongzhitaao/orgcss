@@ -8,9 +8,9 @@ body {
     color: #333;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 960px) {
     body {
-        max-width: 720px;
+        max-width: 960px;
         margin: 1% auto;
     }
 }
@@ -64,6 +64,11 @@ body {
     font-size: 14px;
 }
 
+#bibliography table {
+    margin: auto 0;
+    width: 100%;
+}
+
 #footnotes {
     font-size: 14px;
 }
@@ -108,6 +113,7 @@ h5,h6 {
 table {
     border-top: 2px solid;
     border-bottom: 2px solid;
+    margin: auto;
 }
 
 thead {
