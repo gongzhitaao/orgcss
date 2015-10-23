@@ -2,67 +2,23 @@
 <html>
 <head>
 <title>CSS for Org-exported HTML</title>
-<!-- 2015-07-29 Wed 11:20 -->
+<!-- 2015-10-23 Fri 16:51 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="Zhitao Gong">
-<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="http://gongzhitaao.org/orgcss/org.css"/>
 <link rel="stylesheet" type="text/css" href="org.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
-    MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
-        displayAlign: "center",
-        displayIndent: "2em",
-
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
-             }
-        }
-    });
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">CSS for Org-exported HTML</h1>
-<hr >
-
 <div class="abstract">
 <p>
-This article shows off my org.css, a simple and clean stylesheet for
-org-exported HTML file.  My org template for blogging is also
-provided.  The configuration of blogging with org mode is omitted for
-brevity.
+This article shows off my <a href="http:./org.css">org.css</a>, a simple and clean stylesheet for
+org-exported HTML file based on <a href="https://necolas.github.io/normalize.css/">normalize.css</a>.  My org template for
+blogging is also provided.  However the configuration of blogging with
+org mode is omitted for brevity.
 </p>
 
 </div>
@@ -100,7 +56,7 @@ brevity.
 <p>
 <a href="http://orgmode.org/">Org mode</a> is for keeping notes<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>, maintaining TODO lists, planning
 projects, and authoring documents with a fast and effective
-<i>plain-text</i> system<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup> [<a href="#orgmode">1</a>].
+<i>plain-text</i> system<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>.
 </p>
 </blockquote>
 
@@ -110,20 +66,20 @@ Org mode is a built-in major mode in <a href="http://www.gnu.org/software/emacs/
 markups to decorate texts and finally the text file can be compiled
 or exported to some other formats.  The philosophy is that we can
 concentrate on the contents with as few distraction from the styles
-as possible, i.e., as easy-to-read and easy-to-write as is feasible
-[<a href="#markdown">2</a>].  However, markdown is just a markup language for
-web writers, while org mode provides much richer functionality
-beyond simple text markup.  For a full introduction to org mode,
-please refer to <a href="http://orgmode.org/">orgmode.org</a> or Emacs manual.  In this article, we
-focus on one of its uses, <i>exporting to html</i>.
+as possible, i.e., as easy-to-read and easy-to-write as is feasible.
+However, markdown is just a markup language for web writers, while
+org mode provides much richer functionality beyond simple text
+markup.  For a full introduction to org mode, please refer to
+<a href="http://orgmode.org/">orgmode.org</a> or Emacs manual.  In this article, we focus on one of
+its uses, <i>exporting to html</i>.
 </p>
 
 <p>
 I will assume that readers are already familiar with Emacs and org
-mode.  In Section <i>#sec:moti</i> I provide the motivation for this short
-demo.  All related configuration and templates are detailed in
-Section <a href="#sec:setup">3</a>.  And finally Section <i>#sec:con</i> concludes this
-article.
+mode.  In Section <a href="#sec:motivation">2</a> I provide the motivation for this
+short demo.  All related configuration and templates are detailed in
+Section <a href="#sec:setup">3</a>.  And finally Section <a href="#sec:conclusion">5</a> concludes
+this article.
 </p>
 </div>
 </div>
@@ -470,8 +426,6 @@ the simple solution is to use links instead of citations, if
 possible.  Otherwise, hacking some post-processing code is
 necessary.
 </p>
-
-<hr >
 </div>
 </div>
 <div id="footnotes">
@@ -484,52 +438,15 @@ For note keeping, <a href="http://jblevins.org/projects/deft/">Deft</a> with Org
 
 <div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
 A <a href="http://doc.norang.ca/org-mode.html">great article</a> elaborates on this.
-</p>
+</p></div>
 
 
 </div>
-
-
-</div>
-</div>
-<div id="bibliography">
-<h2>References</h2>
-<table>
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="orgmode">1</a>]
-</td>
-<td class="bibtexitem">
-Carsten Dominik and
-  <a href="http://orgmode.org/org.html#History-and-Acknowledgments">many others</a>.
- Org mode for Emacs, 2003.
-[&nbsp;<a href="ref_bib.html#orgmode">bib</a>&nbsp;|
-<a href="http://orgmode.org/">http</a>&nbsp;]
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="markdown">2</a>]
-</td>
-<td class="bibtexitem">
-John Gruber.
- Markdown, December 2004.
-[&nbsp;<a href="ref_bib.html#markdown">bib</a>&nbsp;|
-<a href="http://daringfireball.net/projects/markdown/">http</a>&nbsp;]
-
-</td>
-</tr>
-</table>
-</div>
-</div>
+</div></div>
 <div id="postamble" class="status">
 <a class="author"
-       href="http://gongzhitaao.org">Zhitao Gong</a> / <span
-       class="date">2015-07-29 Wed 11:20</span><span class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</span>
+         href="http://gongzhitaao.org">Zhitao Gong</a> / <span
+         class="date">2015-10-23 Fri 16:51</span><span class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</span>
 </div>
 </body>
 </html>
