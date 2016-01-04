@@ -5,9 +5,9 @@ body {
     color: #333;
 }
 
-@media all and (min-width: 100ex) {
+@media all and (min-width: 110ex) {
     body {
-        max-width: 100ex;
+        max-width: 110ex;
         margin: 1% auto;
     }
 
