@@ -5,9 +5,9 @@ body {
     color: #333;
 }
 
-@media all and (min-width: 110ex) {
+@media all and (min-width: 95ex) {
     body {
-        max-width: 110ex;
+        max-width: 95ex;
         margin: 1% auto;
     }
 
@@ -121,7 +121,8 @@ table tr {
 }
 
 td,th {
-    padding: 1% 1%;
+    padding: 5px 10px;
+    vertical-align: middle;
 }
 
 code {
@@ -277,10 +278,6 @@ caption.t-above {
 
 caption.t-bottom {
     caption-side: bottom;
-}
-
-td, th {
-    vertical-align: center;
 }
 
 th.org-right {
