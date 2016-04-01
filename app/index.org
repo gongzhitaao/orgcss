@@ -54,15 +54,15 @@ customized stylesheet using the button at the top left corner.
   [[http://orgmode.org/][orgmode.org]] and [[https://www.gnu.org/software/emacs/]] for
   introduction.
 
-  I will first briefly review pros and cons of some markdown variants
-  in Section [[#sec:related-markdown]].  In Section [[#sec:motivation]] I
-  provide the motivation for this short demo.  Dependencies and
-  configurations are detailed in Section [[#sec:setup]], followed by a
-  complete demo in Section [[#sec:demo]].  Some issues and solutions are
-  presented in Section [[#sec:known-issues]].  And finally Section
-  [[#sec:conclusion]] concludes this article.
+  # I will first briefly review pros and cons of some markdown variants
+  # in Section [[#sec:related-markdown]].  In Section [[#sec:motivation]] I
+  # provide the motivation for this short demo.  Dependencies and
+  # configurations are detailed in Section [[#sec:setup]], followed by a
+  # complete demo in Section [[#sec:demo]].  Some issues and solutions are
+  # presented in Section [[#sec:known-issues]].  And finally Section
+  # [[#sec:conclusion]] concludes this article.
 
-* Related Markdown
+* COMMENT Related Markdown
   :PROPERTIES:
   :CUSTOM_ID: sec:related-markdown
   :END:
@@ -318,7 +318,7 @@ Your content goes here.
   The citation exporter, =ox-bibtex=, does NOT work seamlessly.  As of
   =Org-mode 8.3.2=, I have the following issues.
 
-** Dangling Element
+** +Dangling Element+                                                :solved:
    :PROPERTIES:
    :CUSTOM_ID: sec:dangling-element
    :END:
@@ -364,46 +364,41 @@ Your content goes here.
 
    #+BEGIN_SRC html
 <div id="outline-container-1" class="outline-2">
-<!-- section 1 -->
-<div>
+  <!-- section 1 -->
+</div>
 <div id="outline-container-2" class="outline-2">
-<!-- section 2 -->
-<div>
+  <!-- section 2 -->
+</div>
 <div id="outline-container-3" class="outline-2">
-<!-- section 3 -->
-<div>
+  <!-- section 3 -->
+</div>
 <div id="bibliography">
-<!-- bibliography goes here -->
-<div>
+  <!-- bibliography goes here -->
+</div>
    #+END_SRC
 
    But we got
 
    #+BEGIN_SRC html
 <div id="outline-container-1" class="outline-2">
-<!-- section 1 -->
-<div>
+  <!-- section 1 -->
+</div>
 <div id="outline-container-2" class="outline-2">
-<!-- section 2 -->
-<div>
+  <!-- section 2 -->
+</div>
 <div id="outline-container-3" class="outline-2">
-<!-- section 3 -->
+  <!-- section 3 -->
   <div id="bibliography">
-  <!-- bibliography goes here -->
-  <div>
-<div>
+    <!-- bibliography goes here -->
+  </div>
+</div>
    #+END_SRC
 
-   The problem is that the following command
-
-   #+BEGIN_SRC org
-,#+BIBLIOGRAPHY ref plain
-   #+END_SRC
-
-   is always ignored unless it is belonged to a section.  This is due
-   to the internal implementation of keyword parser of =ox-html=.
-   Currently hacking some post-processing code is the only solution if
-   you do not want to do it manually.
+   The problem is that the =#+BIBLIOGRAPHY= command is always ignored
+   unless it is belonged to a section.  This is due to the internal
+   implementation of keyword parser of =ox-html=.  Currently hacking
+   some post-processing code is the only solution if you do not want
+   to do it manually.
 
 ** Wrong Back Reference
    :PROPERTIES:

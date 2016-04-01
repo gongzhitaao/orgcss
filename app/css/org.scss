@@ -1,54 +1,61 @@
+@import "include-media";
+
+$font-stack: "Open Sans", sans;
+$max-width: 960px;
+$text-width: 0.7 * $max-width;
+
 body {
-    max-width: 100%;
-    margin: 1% 1%;
-    font: normal normal normal 16px/1.6em 'Open Sans', sans-serif;
+    width: 100%;
+    margin: 2% 2%;
+    font: normal normal normal 16px/1.6em $font-stack;
     color: #333;
-}
 
-@media all and (min-width: 95ex) {
-    body {
-        max-width: 95ex;
-        margin: 1% auto;
-    }
-
-    .creator {
-        float: right;
-    }
-}
-
-@media not all and (min-width: 110ex) {
-
-    .creator {
-        float: left;
-    }
-
-    p img {
-        width: 95%;
+    @include media('>desktop') {
+        width: $max-width;
     }
 }
 
 .title {
     padding: .5em 0;
-    text-align: center;
     color: black;
 }
 
 .subtitle {
     font-size: medium;
     font-weight: bold;
-    margin-top: 0;
-    text-align: center;
+}
+
+p {
+    width: 95%;
+
+    @include media('>desktop') {
+        width: $text-width;
+    }
 }
 
 .abstract {
     width: 80%;
-    margin: auto;
     font-style: italic;
+
+    @include media('<desktop') {
+        margin: auto;
+    }
 }
 
 .abstract p:last-of-type:before {
     content: "    ";
     white-space: pre;
+}
+
+@include media('>desktop') {
+    .abstract p{
+        width: 0.8 * $text-width;
+        margin-left: 0.1 * $text-width;
+    }
+
+    .figure {
+        padding: 1em;
+    }
 }
 
 .status {
@@ -87,8 +94,23 @@ a:hover {
     border-bottom: 1px dotted;
 }
 
-p img {
+img {
     vertical-align: middle;
+}
+
+@include media('<desktop') {
+    p img {
+        width: 90%;
+    }
+}
+
+.MathJax_Display {
+    margin: 0!important;
+    width: 90%!important;
+
+    @include media('>desktop') {
+        width: $text-width !important;
+    }
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -101,10 +123,23 @@ h4,h5,h6 {
     font-size: 1em;
 }
 
+ul,ol,dl {
+    width: 95%;
+
+    @include media('>desktop') {
+        width: $text-width;
+    }
+}
+
+dt {
+    font-weight: bold;
+}
+
+/* table */
+
 table {
     border-top: 2px solid;
     border-bottom: 2px solid;
-    margin: auto;
     border-collapse: collapse;
 }
 
@@ -125,6 +160,38 @@ td,th {
     vertical-align: middle;
 }
 
+caption.t-above {
+    caption-side: top;
+}
+
+caption.t-bottom {
+    caption-side: bottom;
+}
+
+th.org-right {
+    text-align: center;
+}
+
+th.org-left {
+    text-align: center;
+}
+
+th.org-center {
+    text-align: center;
+}
+
+td.org-right {
+    text-align: right;
+}
+
+td.org-left {
+    text-align: left;
+}
+
+td.org-center {
+    text-align: center;
+}
+
 code {
     padding: 2px 5px;
     margin: auto 1px;
@@ -143,7 +210,7 @@ blockquote {
 
 kbd {
     background-color: #f7f7f7;
-    font-size: 14px;
+    font-size: 90%;
     margin: 0 .1em;
     padding: .1em .6em;
 }
@@ -218,6 +285,10 @@ p.verse {
     margin-left: 3%;
 }
 
+.org-src-container {
+    width: 95%;
+}
+
 pre {
     border: 1px solid #ccc;
     box-shadow: 3px 3px 3px #eee;
@@ -240,7 +311,7 @@ pre.src:before {
     padding: 3px;
     position: absolute;
     right: 10px;
-    /* top: -10px; */
+    top: .6em;
 }
 
 pre.src:hover:before {
@@ -272,42 +343,6 @@ pre.src-html:before {
     content: 'HTML'
 }
 
-caption.t-above {
-    caption-side: top;
-}
-
-caption.t-bottom {
-    caption-side: bottom;
-}
-
-th.org-right {
-    text-align: center;
-}
-
-th.org-left {
-    text-align: center;
-}
-
-th.org-center {
-    text-align: center;
-}
-
-td.org-right {
-    text-align: right;
-}
-
-td.org-left {
-    text-align: left;
-}
-
-td.org-center {
-    text-align: center;
-}
-
-dt {
-    font-weight: bold;
-}
-
 .inlinetask {
     background: #ffffcc;
     border: 2px solid gray;
@@ -334,7 +369,20 @@ dt {
 }
 
 #bibliography table {
-    width: 100%;
+    width: 95%;
+
+    @include media('>desktop') {
+        width: $text-width;
+    }
+}
+
+.creator {
+    display: block;
+
+    @include media('>desktop') {
+        display: inline;
+        float: right;
+    }
 }
 
 /* .org-info-js_info-navigation { */
