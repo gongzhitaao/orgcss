@@ -13,7 +13,7 @@ var debug = require('gulp-debug');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
 
-var src = 'app';
+var src = 'src';
 var dist = 'dist';
 
 gulp.task('default', ['browser-sync',
@@ -34,7 +34,7 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('optimize-html', function() {
-  var p = 'app/index.html';
+  var p = path.join('./', src, 'index.html');
   return gulp.src(p)
     .pipe(watch(p, {verbose: true}))
     .pipe(htmlmin({
@@ -51,16 +51,17 @@ gulp.task('optimize-css', function() {
   var processors = [
     cssnano({autoprefixer: { browsers: ['last 2 version']},
              discardComments: {removeAll: true}})];
-  var p = 'app/css/org-default.css';
+  var p = path.join('./', src, 'css/org-default.css');
   var org_default = gulp.src(p)
         .pipe(watch(p, {verbose: true}))
         .pipe(postcss(processors))
         .pipe(flatten())
         .pipe(gulp.dest('dist/'));
 
-  var org_custom = gulp.src(['app/css/normalize.css',
-                             'app/css/org.scss'])
-        .pipe(watch('app/css/org.scss', {verbose: true}))
+  p = [path.join('./', src, 'css/normalize.css'),
+       path.join('./', src, 'css/org.scss')];
+  var org_custom = gulp.src(p)
+        .pipe(watch(path.join('./', src, 'css/org.scss'), {verbose: true}))
         .pipe(gulpif('*.scss', sass()))
         .pipe(concat('org.css'))
         .pipe(postcss(processors))

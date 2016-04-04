@@ -5,13 +5,14 @@ $max-width: 960px;
 $text-width: 0.7 * $max-width;
 
 body {
-    width: 100%;
-    margin: 2% 2%;
+    width: 95%;
+    margin-left: 2%;
     font: normal normal normal 16px/1.6em $font-stack;
     color: #333;
 
     @include media('>desktop') {
         width: $max-width;
+        margin: auto;
     }
 }
 
@@ -26,7 +27,7 @@ body {
 }
 
 p {
-    width: 95%;
+    width: 100%;
 
     @include media('>desktop') {
         width: $text-width;
@@ -34,11 +35,12 @@ p {
 }
 
 .abstract {
+    margin: auto;
     width: 80%;
     font-style: italic;
 
-    @include media('<desktop') {
-        margin: auto;
+    @include media('>desktop') {
+        margin-left: 0.1 * $max-width;
     }
 }
 
@@ -48,9 +50,9 @@ p {
 }
 
 @include media('>desktop') {
+
     .abstract p{
         width: 0.8 * $text-width;
-        margin-left: 0.1 * $text-width;
     }
 
     .figure {
@@ -124,7 +126,7 @@ h4,h5,h6 {
 }
 
 ul,ol,dl {
-    width: 95%;
+    width: 90%;
 
     @include media('>desktop') {
         width: $text-width;
@@ -286,7 +288,7 @@ p.verse {
 }
 
 .org-src-container {
-    width: 95%;
+    width: 90%;
 }
 
 pre {
@@ -369,7 +371,7 @@ pre.src-html:before {
 }
 
 #bibliography table {
-    width: 95%;
+    width: 90%;
 
     @include media('>desktop') {
         width: $text-width;
