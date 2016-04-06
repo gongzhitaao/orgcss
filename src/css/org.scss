@@ -1,63 +1,41 @@
 @import "include-media";
 
 $font-stack: "Open Sans", sans;
-$max-width: 960px;
-$text-width: 0.7 * $max-width;
+$max-width: 800px;
 
 body {
     width: 95%;
-    margin-left: 2%;
+    margin: 2%;
     font: normal normal normal 16px/1.6em $font-stack;
     color: #333;
 
     @include media('>desktop') {
         width: $max-width;
-        margin: auto;
+        margin-left: 0.2 * $max-width;
     }
 }
 
 .title {
+    text-align: center;
     padding: .5em 0;
     color: black;
 }
 
 .subtitle {
+    text-align: center;
     font-size: medium;
     font-weight: bold;
-}
-
-p {
-    width: 100%;
-
-    @include media('>desktop') {
-        width: $text-width;
-    }
 }
 
 .abstract {
     margin: auto;
     width: 80%;
     font-style: italic;
-
-    @include media('>desktop') {
-        margin-left: 0.1 * $max-width;
-    }
 }
 
 .abstract p:last-of-type:before {
     content: "    ";
     white-space: pre;
-}
-
-@include media('>desktop') {
-
-    .abstract p{
-        width: 0.8 * $text-width;
-    }
-
-    .figure {
-        padding: 1em;
-    }
 }
 
 .status {
@@ -97,22 +75,13 @@ a:hover {
 }
 
 img {
+    max-width: 100%;
     vertical-align: middle;
-}
-
-@include media('<desktop') {
-    p img {
-        width: 90%;
-    }
 }
 
 .MathJax_Display {
     margin: 0!important;
     width: 90%!important;
-
-    @include media('>desktop') {
-        width: $text-width !important;
-    }
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -125,14 +94,6 @@ h4,h5,h6 {
     font-size: 1em;
 }
 
-ul,ol,dl {
-    width: 90%;
-
-    @include media('>desktop') {
-        width: $text-width;
-    }
-}
-
 dt {
     font-weight: bold;
 }
@@ -140,6 +101,7 @@ dt {
 /* table */
 
 table {
+    margin: auto;
     border-top: 2px solid;
     border-bottom: 2px solid;
     border-collapse: collapse;
@@ -287,10 +249,6 @@ p.verse {
     margin-left: 3%;
 }
 
-.org-src-container {
-    width: 90%;
-}
-
 pre {
     border: 1px solid #ccc;
     box-shadow: 3px 3px 3px #eee;
@@ -371,11 +329,7 @@ pre.src-html:before {
 }
 
 #bibliography table {
-    width: 90%;
-
-    @include media('>desktop') {
-        width: $text-width;
-    }
+    width: 100%;
 }
 
 .creator {
