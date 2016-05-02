@@ -19,7 +19,7 @@ function swapStyle(css){
 #+BEGIN_abstract
 This article serves as a complete demonstration for my [[http:./org.css][org.css]], a
 simple and clean stylesheet for org-exported HTML file.  You may
-switch between the default style provided by Emacs Orgmode, i.e.,
+switch between the default style provided by Emacs Org mode, i.e.,
 styles specified in the variable =org-html-style-default= and my
 customized stylesheet using the button at the top left corner.
 #+END_abstract
@@ -38,36 +38,28 @@ customized stylesheet using the button at the top left corner.
   #+END_QUOTE
 
   Org mode was created by Carsten Dominik back in 2003.  It is a
-  built-in major mode in [[http://www.gnu.org/software/emacs/][Emacs]].  It's similar to [[http://daringfireball.net/projects/markdown/syntax][markdown]] where all
-  editing is done in plain text with some character markups to
-  decorate texts and finally the text file can be exported to some
-  other formats, e.g., HTML.  The philosophy is that we can
-  concentrate on the contents with as few distraction from the styles
-  as possible, i.e., as easy-to-read and easy-to-write as is feasible.
-  However, the original markdown is a markup language used to create
-  webpages, while org mode provides much richer functionality beyond
-  simple text markup, e.g., a complete [[https://en.wikipedia.org/wiki/Getting_Things_Done][Getting Things Done (GTD)]]
-  system, task timing and reminder, complete system for reproducible
-  research, etc.  In this article however we only focus on one of its
-  uses, /generating HTML pages/.  I will assume that readers are
-  already familiar with Emacs and org mode, otherwise please refer to
-  [[http://orgmode.org/][orgmode.org]] and [[https://www.gnu.org/software/emacs/]] for
-  introduction.
+  built-in major mode in [[http://www.gnu.org/software/emacs/][Emacs]].  It's similar to [[http://daringfireball.net/projects/markdown/syntax][markdown]]
+  \cite{markdown} where all editing is done in plain text with some
+  character markups to decorate texts and finally the text file can be
+  exported to some other formats, e.g., HTML.  The philosophy is that
+  we can concentrate on the contents with as few distraction from the
+  styles as possible, i.e., as easy-to-read and easy-to-write as is
+  feasible.  However, the original markdown is a markup language used
+  to create web pages, while Org mode provides much richer
+  functionality beyond simple text markup, e.g., a complete [[https://en.wikipedia.org/wiki/Getting_Things_Done][Getting
+  Things Done (GTD)]] system, task timing and reminder, complete system
+  for reproducible research, etc.  In this article however we only
+  focus on one of its uses, /generating HTML pages/.  I will assume
+  that readers are already familiar with Emacs and org mode, otherwise
+  please refer to [[http://orgmode.org/][orgmode.org]] and [[https://www.gnu.org/software/emacs/]]
+  for introduction.
 
-  # I will first briefly review pros and cons of some markdown variants
-  # in Section [[#sec:related-markdown]].  In Section [[#sec:motivation]] I
-  # provide the motivation for this short demo.  Dependencies and
-  # configurations are detailed in Section [[#sec:setup]], followed by a
-  # complete demo in Section [[#sec:demo]].  Some issues and solutions are
-  # presented in Section [[#sec:known-issues]].  And finally Section
-  # [[#sec:conclusion]] concludes this article.
-
-* COMMENT Related Markdown
+* Related Markdowns
   :PROPERTIES:
-  :CUSTOM_ID: sec:related-markdown
+  :CUSTOM_ID: sec:related-markdowns
   :END:
 
-  [[https://daringfireball.net/projects/markdown/][Markdown 1.0.1]] \cite{markdown} was first released back in 2004.
+  [[https://daringfireball.net/projects/markdown/][Markdown 1.0.1]] was first released back in 2004.
 
   #+BEGIN_QUOTE
   Markdown is a text-to-HTML conversion tool for web writers.
@@ -76,50 +68,35 @@ customized stylesheet using the button at the top left corner.
   HTML).
   #+END_QUOTE
 
-  According to the original markdown manifesto, markdown is two
-  things:
+  There are many flavors of markdowns and tools.  The followings are
+  some that I really like.  For a more complete list of markdown
+  flavors, see [[http://pandoc.org/][Pandoc]].
 
-  1. a plain text formatting syntax;
-  2. a software tool, written in Perl, that converts the plain text
-     formatting to HTML.
+  #+ATTR_HTML: :style width:80px
+  [[file:img/org-mode.png]]
 
+  [[http://orgmode.org/][Org mode]], a Emacs built-in major mode.  This document is generated
+  in Org mode.
 
-  Many variants of markdown syntax and related programs are avaiable.
-  I compare the pros and cons of some of the markdown variants within
-  my knowledge.
+  #+ATTR_HTML: :style width:80px
+  [[file:img/gfm.png]]
 
-  - [[http://orgmode.org/][Org mode]] :: It is what I'm focusing on in the article.  I highly
-       recommend it if you are an Emacs user.  Some of the advantages
-       are as follows.
+  [[https://guides.github.com/features/mastering-markdown/][Github Flavored Markdown (GFM)]], a variant favored by [[https://github.com][Github]].
 
-    - It is a builtin Emacs major mode, which means it integrates with
-      Emacs nicely.  As stated in Section [[#sec:introduction]], beyond
-      being just a markdown, it is easy to use it as a GTD or
-      reproducible research environment in Emacs.
+  #+ATTR_HTML: :style width:80px
+  [[file:img/madoko.png]]
 
-    - It is under active development.  You can get a new patch
-      around a week or so.  Many functionalities are added and
-      perfected.  If you are familiar with Emacs Lisp, it is not
-      too difficult to create your own plugins for Org mode.
+  [[https://www.madoko.net/][Madoko]], a less-known but excellent and fast markdown processor for
+  writing /professional/ articles, books, manuals, webpages and
+  presentations, with a focus on simplicity and plain text
+  readability.
 
-    Advantages are of course "not free".
+  #+ATTR_HTML: :style width:80px
+  [[file:img/texinfo.png]]
 
-    - It is bundled with Emacs, thus you may need some basic knowledge
-      of Emacs[fn:3].  You many have [[http://orgmode.org/worg/org-tools/][other Org parsers]] avaiable, but
-      they are /unofficial/ and do not receive update, if any, as
-      often as the Org mode itself.
-
-    - There might be some /undocumented/ and /un-backward-compatible/
-      changes which may sometimes be hard to find the source of the
-      problem.  I'm also frustrated sometimes.
-
-    - It is relatively a large system.  You may need to stay with it
-      for quite a long time to find it useful, so with Emacs itself.
-
-  - [[https://help.github.com/articles/github-flavored-markdown/][Github Flavored Markdown (GFM)]] :: GFM is a variant favored by
-       Github and used wildly on https://github.com/.  It is simple
-       and geared toward web usage.  Basically it is a re-invention of
-       the original markdown.
+  [[https://www.gnu.org/software/texinfo/][Texinfo]] uses a single source file to produce output in a number of
+  formats, both online and printed (dvi, html, info, pdf, xml, etc.).
+  It is well-integrated in Emacs.
 
 * Motivation
   :PROPERTIES:
@@ -127,20 +104,24 @@ customized stylesheet using the button at the top left corner.
   :END:
 
   As a heavy Emacs user, [[https://www.google.com/search?q%3Dblogging%2Bwith%2Borg%2Bmode][blogging with org mode]] is a natural choice.
-  Since I'm keeping notes and ideas in org mode, and some of them I
-  may want to publish online.  Questions like why not use products
-  like MS OneNote or Google Keep or Wordpress or whatever simply boil
-  down to personal preference.  Org file is a simple text file which
-  can be processed efficiently by external programs.  It has good
-  built-in support from Emacs, and can be exported to various formats,
-  including /tex/, /pdf/ and /html/.  Except for some special cases
-  where dedicated styles are needed, say academic papers, the default
-  export styles with simple tweaks usually satisfy my needs.  However,
-  the default style provided by org html exporter is simple /boring/.
-  So I decide to tweak the stylesheet a little bit to make it /clean/,
-  /simple/ and more /eye appealing/.
+  I'm keeping notes in org mode, and I may want to publish some of
+  them online.  Questions like why not use products like MS OneNote or
+  Google Keep or Wordpress or whatever simply boil down to personal
+  preference.
 
-  Souce code of this file is available at
+  1. Org file is a simple text file which can be processed efficiently
+     by external programs.
+  2. It has good built-in support from Emacs, and
+  3. can be exported to various formats, /TeX/, /PDF/ and /HTML/.
+
+  Except for some special cases where dedicated styles are needed, say
+  academic papers, the default export styles with simple tweaks
+  usually satisfy my needs.  However, the default style provided by
+  org html exporter is simple /boring/.  So I decide to tweak the
+  stylesheet a little bit to make it /clean/, /simple/ and more /eye
+  appealing/.
+
+  Source code of this file is available at
   https://github.com/gongzhitaao/orgcss.
 
 * Setup
@@ -272,13 +253,11 @@ Your content goes here.
      2. Donec et massa sit amet ligula maximus feugiat.
      3. Morbi consequat orci et tincidunt sagittis.
 
-
 **** Unordered list
 
      - Aliquam non metus nec elit pellentesque scelerisque.
      - In accumsan nunc ac orci varius hendrerit.
      - Suspendisse non eros eu nisi finibus maximus.
-
 
 **** Definition list
 
@@ -296,7 +275,6 @@ Your content goes here.
           Fusce enim orci, suscipit ac dapibus et, fermentum eu tortor.
           Duis in facilisis ante, quis faucibus dolor.  Etiam maximus
           lorem quis accumsan vehicula.
-
 
 *** Picture
 
@@ -432,8 +410,15 @@ Your content goes here.
 
 * Footnotes
 
-[fn:1] For note keeping, [[http://jblevins.org/projects/deft/][Deft]] with Orgmode make a cute couple.
+[fn:1] For note keeping, [[http://jblevins.org/projects/deft/][Deft]] with Org mode make a cute couple.
 
 [fn:2] A [[http://doc.norang.ca/org-mode.html][great article]] elaborates on this.
 
 [fn:3] Even basic knowledge of Emacs means a steep learning curve.
+
+#  LocalWords:  CSS Stylesheet stylesheet css toc num pri kbd onclick
+#  LocalWords:  swapStyle fn TODO orgmode Carsten Dominik GTD XHTML
+#  LocalWords:  functionalities parsers un Github GFM OneNote tex pdf
+#  LocalWords:  Wordpress html util sqrt TBLFM frac oint nabla cdot
+#  LocalWords:  mathcal dV bibtex SRC html reb nobibsource nokeywords
+#  LocalWords:  fn

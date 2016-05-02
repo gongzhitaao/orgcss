@@ -21,6 +21,7 @@
     "gulp": "^3.9.0",
     "gulp-continuous-concat": "^0.1.1",
     "gulp-debug": "^2.1.2",
+    "gulp-dom": "^0.8.0",
     "gulp-filter": "^3.0.1",
     "gulp-flatten": "^0.2.0",
     "gulp-if": "^2.0.0",

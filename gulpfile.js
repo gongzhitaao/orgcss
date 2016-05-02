@@ -12,13 +12,15 @@ var merge = require('merge-stream');
 var debug = require('gulp-debug');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
+var dom = require('gulp-dom');
 
 var src = 'src';
 var dist = 'dist';
 
 gulp.task('default', ['browser-sync',
                       'optimize-html',
-                      'optimize-css']);
+                      'optimize-css',
+                      'copy-assets']);
 
 gulp.task('browser-sync', function() {
   browsersync({
@@ -37,6 +39,15 @@ gulp.task('optimize-html', function() {
   var p = path.join('./', src, 'index.html');
   return gulp.src(p)
     .pipe(watch(p, {verbose: true}))
+    .pipe(dom(function() {
+      var doc = this;
+      var footnotes = doc.getElementById('footnotes');
+      var content = doc.getElementById('content');
+      var bibliography = doc.getElementById('bibliography');
+      if (bibliography)
+        content.insertBefore(bibliography, footnotes);
+      return doc;
+    }))
     .pipe(htmlmin({
       removeComments: true,
       collapseWhitespace: true,
@@ -56,7 +67,7 @@ gulp.task('optimize-css', function() {
         .pipe(watch(p, {verbose: true}))
         .pipe(postcss(processors))
         .pipe(flatten())
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest(dist));
 
   p = [path.join('./', src, 'css/normalize.css'),
        path.join('./', src, 'css/org.scss')];
@@ -69,6 +80,13 @@ gulp.task('optimize-css', function() {
         .pipe(gulp.dest(dist));
 
   return merge(org_default, org_custom);
+});
+
+gulp.task('copy-assets', function() {
+  var p = path.join('./', src, 'img/*');
+  return gulp.src(p)
+    .pipe(watch(p, {verbose: true}))
+    .pipe(gulp.dest(path.join(dist, 'img')));
 });
 
 gulp.task('copy', function() {
