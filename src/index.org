@@ -375,7 +375,7 @@ Your content goes here.
    The problem is that the =#+BIBLIOGRAPHY= command is always ignored
    unless it is belonged to a section.  This is due to the internal
    implementation of keyword parser of =ox-html=.  Currently hacking
-   some post-processing code is the only solution if you do not want
+   some [[https://github.com/gongzhitaao/orgcss/blob/master/gulpfile.js#L42][post-processing code]] is the only solution if you do not want
    to do it manually.
 
 ** Wrong Back Reference
