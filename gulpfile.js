@@ -90,6 +90,6 @@ gulp.task('copy-assets', function() {
 });
 
 gulp.task('copy', function() {
-  return gulp.src(path.join(dist, '*'))
+  return gulp.src(path.join(dist, '**/*'))
     .pipe(gulp.dest('../gh-pages'));
 });
