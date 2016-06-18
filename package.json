@@ -24,6 +24,7 @@
     "gulp-dom": "^0.8.0",
     "gulp-filter": "^3.0.1",
     "gulp-flatten": "^0.2.0",
+    "gulp-htmlmin": "^2.0.0",
     "gulp-if": "^2.0.0",
     "gulp-postcss": "^6.1.0",
     "gulp-sass": "^2.2.0",

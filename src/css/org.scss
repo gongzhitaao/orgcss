@@ -1,17 +1,19 @@
 @import "include-media";
 
-$font-stack: "Open Sans", sans;
-$max-width: 800px;
+$sans-serif: Helvetica, sans-serif;
+$serif: Georgia, serif;
+$monospace: Lucida Console, monospace;
+$max-width: 720px;
 
 body {
     width: 95%;
     margin: 2%;
-    font: normal normal normal 16px/1.6em $font-stack;
+    font: normal normal normal 17px/1.6em $sans-serif;
     color: #333;
 
-    @include media('>desktop') {
+    @include media('>tablet') {
         width: $max-width;
-        margin-left: 0.2 * $max-width;
+        margin-left: 5vw;
     }
 }
 
@@ -74,9 +76,20 @@ a:hover {
     border-bottom: 1px dotted;
 }
 
+figure {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
 img {
     max-width: 100%;
     vertical-align: middle;
+
+    @include media('>tablet') {
+        max-width: 90vw;
+        margin: auto;
+    }
 }
 
 .MathJax_Display {
@@ -87,7 +100,7 @@ img {
 h1,h2,h3,h4,h5,h6 {
     color: #A5573E;
     line-height: 1.6em;
-    font-family: 'Droid Serif', serif;
+    font-family: $serif;
 }
 
 h4,h5,h6 {
@@ -179,32 +192,24 @@ kbd {
     padding: .1em .6em;
 }
 
-.figure {
-    padding: 1em;
-}
-
-.figure p {
-    text-align: center;
-}
-
 .todo {
     color: red;
-    font-family: monospace;
+    font-family: $monospace;
 }
 
 .done {
     color: green;
-    font-family: monospace;
+    font-family: $monospace;
 }
 
 .priority {
     color: orange;
-    font-family: monospace;
+    font-family: $monospace;
 }
 
 .tag {
     background-color: #eee;
-    font-family: monospace;
+    font-family: $monospace;
     font-size: 80%;
     font-weight: normal;
     padding: 2px;
@@ -252,7 +257,7 @@ p.verse {
 pre {
     border: 1px solid #ccc;
     box-shadow: 3px 3px 3px #eee;
-    font-family: monospace;
+    font-family: $monospace;
     margin: 1.2em;
     padding: 8pt;
 }
@@ -335,7 +340,7 @@ pre.src-html:before {
 .creator {
     display: block;
 
-    @include media('>desktop') {
+    @include media('>tablet') {
         display: inline;
         float: right;
     }

@@ -281,6 +281,11 @@ Your content goes here.
     #+CAPTION: Demo Picture with Caption
     [[file:./img/pic-demo.png]]
 
+    And a really wide picture.
+
+    #+CAPTION: A really long picture
+    [[file:img/long-img.png]]
+
 *** Math
 
     \begin{align}
