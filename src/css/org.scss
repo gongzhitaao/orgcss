@@ -3,7 +3,9 @@
 $sans-serif: Helvetica, sans-serif;
 $serif: Georgia, serif;
 $monospace: Lucida Console, monospace;
-$max-width: 720px;
+$code-size: 80%;
+$smaller: 90%;
+$max-width: 700px;
 
 body {
     width: 95%;
@@ -19,7 +21,7 @@ body {
 
 .title {
     text-align: center;
-    padding: .5em 0;
+    margin: auto;
     color: black;
 }
 
@@ -41,7 +43,7 @@ body {
 }
 
 .status {
-    font-size: 90%;
+    font-size: $smaller;
     margin: 2em auto;
 }
 
@@ -50,7 +52,7 @@ body {
 }
 
 #footnotes {
-    font-size: 90%;
+    font-size: $smaller;
 }
 
 .footpara {
@@ -87,14 +89,14 @@ img {
     vertical-align: middle;
 
     @include media('>tablet') {
-        max-width: 90vw;
+        max-width: 85vw;
         margin: auto;
     }
 }
 
 .MathJax_Display {
     margin: 0!important;
-    width: 90%!important;
+    width: $smaller!important;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -176,7 +178,7 @@ code {
     border-radius: 3px;
     background-clip: padding-box;
     color: #333;
-    font-size: 90%;
+    font-size: $code-size;
 }
 
 blockquote {
@@ -187,7 +189,7 @@ blockquote {
 
 kbd {
     background-color: #f7f7f7;
-    font-size: 90%;
+    font-size: $code-size;
     margin: 0 .1em;
     padding: .1em .6em;
 }
@@ -246,7 +248,7 @@ kbd {
 }
 
 #postamble p, #preamble p {
-    font-size: 90%;
+    font-size: $smaller;
     margin: .2em;
 }
 
@@ -266,7 +268,7 @@ pre.src {
     overflow: auto;
     padding-top: 1.2em;
     position: relative;
-    font-size: 90%;
+    font-size: $code-size;
 }
 
 pre.src:before {
@@ -330,7 +332,7 @@ pre.src-html:before {
 }
 
 #bibliography {
-    font-size: 90%;
+    font-size: $smaller;
 }
 
 #bibliography table {
