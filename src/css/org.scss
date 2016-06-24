@@ -19,6 +19,10 @@ body {
     }
 }
 
+::selection {
+    background: #D6EDFF;
+}
+
 .title {
     text-align: center;
     margin: auto;
