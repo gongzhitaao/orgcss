@@ -1,4 +1,4 @@
-OrgCSS [![DUB](https://img.shields.io/dub/l/vibe-d.svg?maxAge=2592000)](https://github.com/gongzhitaao/orgcss)
+OrgCSS [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/gongzhitaao/orgcss)
 ======
 
 # License #
