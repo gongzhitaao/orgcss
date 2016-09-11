@@ -34,25 +34,25 @@ customized stylesheet using the button at the top left corner.
   #+BEGIN_QUOTE
   [[http://orgmode.org/][Org mode]] is for keeping notes[fn:1], maintaining TODO lists, planning
   projects, and authoring documents with a fast and effective
-  /plain-text/ system[fn:2] \cite{orgmode}.
+  /plain-text/ system[fn:2] cite:dominik2003-org.
   #+END_QUOTE
 
   Org mode was created by Carsten Dominik back in 2003.  It is a
   built-in major mode in [[http://www.gnu.org/software/emacs/][Emacs]].  It's similar to [[http://daringfireball.net/projects/markdown/syntax][markdown]]
-  \cite{markdown} where all editing is done in plain text with some
-  character markups to decorate texts and finally the text file can be
-  exported to some other formats, e.g., HTML.  The philosophy is that
-  we can concentrate on the contents with as few distraction from the
-  styles as possible, i.e., as easy-to-read and easy-to-write as is
-  feasible.  However, the original markdown is a markup language used
-  to create web pages, while Org mode provides much richer
-  functionality beyond simple text markup, e.g., a complete [[https://en.wikipedia.org/wiki/Getting_Things_Done][Getting
-  Things Done (GTD)]] system, task timing and reminder, complete system
-  for reproducible research, etc.  In this article however we only
-  focus on one of its uses, /generating HTML pages/.  I will assume
-  that readers are already familiar with Emacs and org mode, otherwise
-  please refer to [[http://orgmode.org/][orgmode.org]] and [[https://www.gnu.org/software/emacs/]]
-  for introduction.
+  cite:gruber2004-markdown where all editing is done in plain text
+  with some character markups to decorate texts and finally the text
+  file can be exported to some other formats, e.g., HTML.  The
+  philosophy is that we can concentrate on the contents with as few
+  distraction from the styles as possible, i.e., as easy-to-read and
+  easy-to-write as is feasible.  However, the original markdown is a
+  markup language used to create web pages, while Org mode provides
+  much richer functionality beyond simple text markup, e.g., a
+  complete [[https://en.wikipedia.org/wiki/Getting_Things_Done][Getting Things Done (GTD)]] system, task timing and reminder,
+  complete system for reproducible research, etc.  In this article
+  however we only focus on one of its uses, /generating HTML pages/.
+  I will assume that readers are already familiar with Emacs and org
+  mode, otherwise please refer to [[http://orgmode.org/][orgmode.org]] and
+  [[https://www.gnu.org/software/emacs/]] for introduction.
 
 * Related Markdowns
   :PROPERTIES:
@@ -410,6 +410,13 @@ Your content goes here.
   the simple solution is to use links instead of citations, if
   possible.  Otherwise, hacking some post-processing code is
   necessary.
+
+* Credits
+
+  Some styles are borrowed from the following projects.
+
+  - [[http://demo.thi.ng/org-spec/][org-spec]]
+  - [[http://doc.norang.ca/org-mode.html][Organize Your Life In Plain Text!]]
 
 #+BIBLIOGRAPHY: ref plain option:-nobibsource limit:t option:-nokeywords
 

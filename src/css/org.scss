@@ -254,6 +254,7 @@ Maybe we need a cleaner solution. */
 
 .timestamp {
     color: #bebebe;
+    font-size: $smaller;
 }
 
 .timestamp-kwd {
@@ -306,14 +307,18 @@ pre.src {
     font-size: $code-size;
 }
 
+/* from http://demo.thi.ng/org-spec/ */
 pre.src:before {
-    background-color: white;
-    border: 1px solid black;
-    display: none;
-    padding: 3px;
+    display: block;
     position: absolute;
-    right: 10px;
-    top: .6em;
+    background-color: #ccccd0;
+    top: 0;
+    right: 0;
+    padding: 0.25em 0.5em;
+    border-bottom-left-radius: 8px;
+    border: 0;
+    color: white;
+    font-size: $code-size;
 }
 
 pre.src:hover:before {
@@ -359,7 +364,7 @@ pre.src-html:before {
 }
 
 .linenr {
-    font-size: smaller;
+    font-size: $smaller;
 }
 
 .code-highlighted {
