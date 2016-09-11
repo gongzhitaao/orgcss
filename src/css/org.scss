@@ -99,6 +99,7 @@ img {
 }
 
 .MathJax_Display {
+    font-size: $smaller;
     margin: 0!important;
     width: $smaller!important;
 }
@@ -199,12 +200,22 @@ kbd {
 }
 
 .todo {
-    color: red;
+    background-color: red;
+    color: white;
+    padding: 2px;
+    border-radius: 3px;
+    background-clip: padding-box;
+    font-size: $code-size;
     font-family: $monospace;
 }
 
 .done {
-    color: green;
+    background-color: green;
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+    background-clip: padding-box;
+    font-size: $code-size;
     font-family: $monospace;
 }
 
@@ -217,10 +228,13 @@ kbd {
     font-family: $monospace;
     font-size: 70%;
     font-weight: normal;
+    clear: both;
 }
 
 .tag span {
-    padding: 2px 5px;
+    padding: 0px 5px;
+    float: right;
+    margin-right: 5px;
     border: 1px solid #bbb;
     border-radius: 3px;
     background-clip: padding-box;

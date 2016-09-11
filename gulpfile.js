@@ -89,7 +89,7 @@ gulp.task('copy-assets', function() {
     .pipe(gulp.dest(path.join(dist, 'img')));
 });
 
-gulp.task('copy', function() {
+gulp.task('deploy', function() {
   return gulp.src(path.join(dist, '**/*'))
     .pipe(gulp.dest('../gh-pages'));
 });
