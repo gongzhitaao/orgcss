@@ -10,7 +10,7 @@ $max-width: 700px;
 body {
     width: 95%;
     margin: 2%;
-    font: normal normal normal 17px/1.6em $sans-serif;
+    font: normal normal normal 16px/1.6em $sans-serif;
     color: #333;
 
     @include media('>tablet') {
@@ -214,11 +214,18 @@ kbd {
 }
 
 .tag {
-    background-color: #eee;
     font-family: $monospace;
-    font-size: 80%;
+    font-size: 70%;
     font-weight: normal;
-    padding: 2px;
+}
+
+.tag span {
+    padding: 2px 5px;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    background-clip: padding-box;
+    color: #333;
+    background-color: #eee;
 }
 
 .timestamp {
