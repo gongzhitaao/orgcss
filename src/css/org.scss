@@ -55,6 +55,10 @@ body {
     margin-right: .5em;
 }
 
+[id^="orgheadline"] {
+    clear: both;
+}
+
 #footnotes {
     font-size: $smaller;
 }
@@ -224,11 +228,16 @@ kbd {
     font-family: $monospace;
 }
 
+/* Because tag span is set to float.  This is more like a hacking.
+Maybe we need a cleaner solution. */
+#table-of-contents li {
+    clear: both;
+}
+
 .tag {
     font-family: $monospace;
     font-size: 70%;
     font-weight: normal;
-    clear: both;
 }
 
 .tag span {
@@ -240,6 +249,7 @@ kbd {
     background-clip: padding-box;
     color: #333;
     background-color: #eee;
+    line-height: 1.6;
 }
 
 .timestamp {
