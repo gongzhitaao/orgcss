@@ -1,7 +1,7 @@
 OrgCSS [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/gongzhitaao/orgcss/blob/master/LICENSE.md)
 ======
 
-# How to Use #
+## How to Use ##
 
 Add the following setup to your org file
 
@@ -9,7 +9,7 @@ Add the following setup to your org file
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://gongzhitaao.org/orgcss/org.css"/>
 ```
 
-# Related Project #
+## Related Project ##
 
 All supported CSS classes are listed [Org Online Manual - 12.6.11 CSS support](http://orgmode.org/manual/CSS-support.html)
 
