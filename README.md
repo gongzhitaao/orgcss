@@ -1,27 +1,19 @@
-OrgCSS [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/gongzhitaao/orgcss)
+OrgCSS [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/gongzhitaao/orgcss/blob/master/LICENSE.md)
 ======
 
-# License #
+# How to Use #
 
-MIT License
+Add the following setup to your org file
 
-Copyright (c) [2016] [gongzhitaao]
+```org
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://gongzhitaao.org/orgcss/org.css"/>
+```
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+# Related Project #
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+All supported CSS classes are listed [Org Online Manual - 12.6.11 CSS support](http://orgmode.org/manual/CSS-support.html)
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+1. [fniessen/org-html-themes](https://github.com/fniessen/org-html-themes)
+2. [mowen/gist326524](https://gist.github.com/mowen/326524)
+3. [Web Pages Made with Org-Mode](http://orgmode.org/worg/org-web.html)
+4. [thomasf/solarized-css](https://github.com/thomasf/solarized-css)
