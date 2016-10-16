@@ -1,45 +1,53 @@
-var autoprefixer = require('autoprefixer');
-var browsersync = require('browser-sync');
-var concat = require('gulp-continuous-concat');
-var cssnano = require('cssnano');
-var flatten = require('gulp-flatten');
-var gulp = require('gulp');
-var htmlmin = require('gulp-htmlmin');
-var gulpif = require('gulp-if');
-var path = require('path');
-var postcss = require('gulp-postcss');
-var merge = require('merge-stream');
-var debug = require('gulp-debug');
-var sass = require('gulp-sass');
-var watch = require('gulp-watch');
-var dom = require('gulp-dom');
+const D = require('del');
 
-var src = 'src';
-var dist = 'dist';
+const cssnano = require('cssnano');
 
-gulp.task('default', ['browser-sync',
-                      'optimize-html',
-                      'optimize-css',
-                      'copy-assets']);
+const $ = require('gulp');
+const $changed = require('gulp-changed');
+const $concat = require('gulp-concat');
+const $dom = require('gulp-dom');
+const $flatten = require('gulp-flatten');
+const $if = require('gulp-if');
+const $htmlmin = require('gulp-htmlmin');
+const $postcss = require('gulp-postcss');
+const $sass = require('gulp-sass');
 
-gulp.task('browser-sync', function() {
+const merge = require('merge-stream');
+
+const browsersync = require('browser-sync');
+const reload = (done) => {browsersync.reload(); done();};
+
+$.task('default', $.series(
+  () => D(['./build']),
+  $.parallel(pages, styles, misc),
+  $.parallel(serve, watch)));
+
+// -------------------------------------------------------------------
+// watch
+// -------------------------------------------------------------------
+
+function watch() {
+  $.watch(['./src/index.html'], $.series(pages, reload));
+  $.watch(['./src/css/*.css', './src/css/*.scss'],
+          $.series(styles, reload));
+  $.watch(['./src/img/*'], $.series(misc, reload));
+}
+
+// -------------------------------------------------------------------
+// serve
+// -------------------------------------------------------------------
+
+function serve() {
   browsersync({
-    server: {
-      baseDir: dist
-    },
-    port: 4000,
-    files: [
-      path.join(dist, '*.css'),
-      path.join(dist, '*.html')
-    ]
+    server: './build',
+    port: 4000
   });
-});
+}
 
-gulp.task('optimize-html', function() {
-  var p = path.join('./', src, 'index.html');
-  return gulp.src(p)
-    .pipe(watch(p, {verbose: true}))
-    .pipe(dom(function() {
+function pages() {
+  return $.src('./src/index.html')
+    .pipe($changed('./build'))
+    .pipe($dom(function() {
       var doc = this;
       var footnotes = doc.getElementById('footnotes');
       var content = doc.getElementById('content');
@@ -48,48 +56,49 @@ gulp.task('optimize-html', function() {
         content.insertBefore(bibliography, footnotes);
       return doc;
     }))
-    .pipe(htmlmin({
+    .pipe($htmlmin({
       removeComments: true,
       collapseWhitespace: true,
       removeEmptyAttributes: true,
       minifyJS: true,
       minifyCSS: true
     }))
-    .pipe(gulp.dest(dist));
-});
+    .pipe($.dest('./build'));
+}
 
-gulp.task('optimize-css', function() {
+function styles() {
   var processors = [
     cssnano({autoprefixer: {browsers: ['last 2 version'], add: true},
              discardComments: {removeAll: true}})];
-  var p = path.join('./', src, 'css/org-default.css');
-  var org_default = gulp.src(p)
-        .pipe(watch(p, {verbose: true}))
-        .pipe(postcss(processors))
-        .pipe(flatten())
-        .pipe(gulp.dest(dist));
 
-  p = [path.join('./', src, 'css/normalize.css'),
-       path.join('./', src, 'css/org.scss')];
-  var org_custom = gulp.src(p)
-        .pipe(watch(path.join('./', src, 'css/org.scss'), {verbose: true}))
-        .pipe(gulpif('*.scss', sass()))
-        .pipe(concat('org.css'))
-        .pipe(postcss(processors))
-        .pipe(flatten())
-        .pipe(gulp.dest(dist));
+  var org_default = $.src('./src/css/org-default.css')
+        .pipe($changed('./build/'))
+        .pipe($postcss(processors))
+        .pipe($flatten())
+        .pipe($.dest('./build'));
+
+  var org_custom = $.src(['./src/css/normalize.css',
+                          './src/css/org.scss'])
+        .pipe($changed('./build'))
+        .pipe($if('*.scss', $sass()))
+        .pipe($concat('org.css'))
+        .pipe($postcss(processors))
+        .pipe($flatten())
+        .pipe($.dest('./build'));
 
   return merge(org_default, org_custom);
-});
+}
 
-gulp.task('copy-assets', function() {
-  var p = path.join('./', src, 'img/*');
-  return gulp.src(p)
-    .pipe(watch(p, {verbose: true}))
-    .pipe(gulp.dest(path.join(dist, 'img')));
-});
+function misc() {
+  return $.src('./src/img/*')
+    .pipe($changed('./build'))
+    .pipe($.dest('./build/img/'));
+}
 
-gulp.task('deploy', function() {
-  return gulp.src(path.join(dist, '**/*'))
-    .pipe(gulp.dest('../gh-pages'));
-});
+// -------------------------------------------------------------------
+// copy to gh-pages
+// -------------------------------------------------------------------
+
+$.task('copy', $.series(
+  () => D(['../gh-pages/*'], {force: true}),
+  () => $.src('./build/**/*').pipe($.dest('../gh-pages'))));

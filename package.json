@@ -15,22 +15,27 @@
   "author": "gongzhitaao",
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "browser-sync": "^2.13.0",
-    "cssnano": "^3.7.1",
-    "gulp": "^3.9.0",
-    "gulp-continuous-concat": "^0.1.1",
-    "gulp-debug": "^2.1.2",
+    "browser-sync": "^2.17.3",
+    "cssnano": "^3.7.7",
+    "del": "^2.2.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-changed": "^1.3.2",
+    "gulp-concat": "^2.6.0",
     "gulp-dom": "^0.9.0",
-    "gulp-filter": "^4.0.0",
-    "gulp-flatten": "^0.3.0",
+    "gulp-flatten": "^0.3.1",
     "gulp-htmlmin": "^2.0.0",
     "gulp-if": "^2.0.1",
-    "gulp-postcss": "^6.1.1",
+    "gulp-postcss": "^6.2.0",
     "gulp-sass": "^2.3.2",
-    "gulp-watch": "^4.3.8",
     "merge-stream": "^1.0.0",
     "normalize.css": "^4.1.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "bugs": {
+    "url": "https://github.com/gongzhitaao/orgcss/issues"
+  },
+  "homepage": "https://github.com/gongzhitaao/orgcss#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
