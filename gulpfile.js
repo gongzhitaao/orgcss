@@ -1,7 +1,5 @@
 const D = require('del');
 
-const cssnano = require('cssnano');
-
 const $ = require('gulp');
 const $changed = require('gulp-changed');
 const $concat = require('gulp-concat');
@@ -13,7 +11,7 @@ const $postcss = require('gulp-postcss');
 const $sass = require('gulp-sass');
 
 const merge = require('merge-stream');
-
+const cssnano = require('cssnano');
 const browsersync = require('browser-sync');
 const reload = (done) => {browsersync.reload(); done();};
 
