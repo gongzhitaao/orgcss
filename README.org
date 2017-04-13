@@ -1,0 +1,90 @@
+#+TITLE: OrgCSS - Stylesheet for Org-Exported HTML
+
+Add the following setup to your org file to use the stylesheet.
+
+#+BEGIN_SRC org
+,#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://gongzhitaao.org/orgcss/org.css"/>
+#+END_SRC
+
+* Code Highlight
+
+When exported to HTML, there are three options for code highlighting,
+controlled by the variable ~org-html-htmlize-output-type~.
+
+** ~(setq org-html-htmlize-output-type 'inline-css)~
+
+This is the default setting.  It highlights the code according to the
+current Emacs theme you are using.  It directly apply color to the
+code with inline styles, e.g., ~<span style="color:
+0x000000">int</span>~.
+
+The problem is that the highlight theme depends on the Emacs theme.
+If you use a dark theme in your Emacs but a light theme (usually we
+like light themed web pages) web pages, the exported code are hardly
+illegible due to the light font color, or vice versa.
+
+** ~(setq org-html-htmlize-output-type nil)~
+
+This configuration disables highlighting by ~htmlize~.  You may use a
+third-party Javascript highlight library.  I recommend [[https://highlightjs.org/][highlight.js]] if
+I need code highlight.  The problem is that you have to rely on
+highlight.js support on a certain language which is occasionally
+missing, e.g., ~emacs-lisp~, ~org~, etc.
+
+Another problem is that highlight.js by default does not recognized
+the tags and classes exported by org mode, include the following three
+lines in your org file to utilize highlight.js for highlighting.
+
+#+BEGIN_SRC org
+#+HTML_HEAD: <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+#+HTML_HEAD: <script>var hlf=function(){Array.prototype.forEach.call(document.querySelectorAll("pre.src"),function(t){var e;e=t.getAttribute("class"),e=e.replace(/src-(\w+)/,"src-$1 $1"),t.setAttribute("class",e),hljs.highlightBlock(t)})};addEventListener("DOMContentLoaded",hlf);</script>
+#+HTML_HEAD: <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/googlecode.min.css" />
+#+END_SRC
+
+1. The first line loads the highlight.js core library from CDN.
+2. The second line add classes (recognized by highlight.js) to
+   exported code blocks.  The script is an uglified version of the
+   following code.
+
+   #+BEGIN_SRC javascript
+var hlf = function() {
+  Array.prototype.forEach.call(
+    document.querySelectorAll('pre.src'),
+    function(block) {
+      var css,lang;
+      css = block.getAttribute('class');
+      css = css.replace(/src-(\w+)/, 'src-$1 $1');
+      block.setAttribute('class', css);
+      hljs.highlightBlock(block);
+    });
+};
+addEventListener('DOMContentLoaded', hlf);
+   #+END_SRC
+
+   Basically it changes the classes assigned to ~<pre>~ so that it is
+   recognizable by highlight.js.  For example, change ~<pre class="src
+   src-cpp">...</pre>~ to ~<pre class="src src-cpp cpp"></pre>~.  The
+   code is adapted from [[https://eknet.org/main/highlightjs_and_orgmode.html][Eike Kettner's Blog]].
+
+3. The third line loads the default highlight.js stylesheet from CDN.
+
+** ~(setq org-html-htmlize-output-type 'css)~
+
+This is my preferred way.  This is similar to the first optional,
+instead of using inline styles, this will assign classes to each
+component of the code, e.g., ~<span class="org-type">int</span>~, and
+you could create your own stylesheet for ~.org-type~.
+
+To obtain a list of all supported org classes, run
+~M-x org-html-htmlize-generate-css~.  This will create a buffer
+containing all the available org style class names in the current
+Emacs session (refer to [[file:src/css/_htmlize.css][src/css/_htmlize.css]] for an example).
+
+* Related
+
+The CSS classes used by ~ox-html~ are documented [[http://orgmode.org/manual/CSS-support.html][here]].
+
+1. [[https://github.com/fniessen/org-html-themes][fniessen/org-html-themes]]
+2. [[https://gist.github.com/mowen/326524][mowen/gist326524]]
+3. [[http://orgmode.org/worg/org-web.html)][Web Pages Made with Org-Mode]]
+4. [[https://github.com/thomasf/solarized-css][thomasf/solarized-css]]

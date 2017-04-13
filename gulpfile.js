@@ -69,8 +69,10 @@ function styles() {
     cssnano({autoprefixer: {browsers: ['last 2 version'], add: true},
              discardComments: {removeAll: true}})];
 
-  var org_default = $.src('./src/css/org-default.css')
+  var org_default = $.src('./src/css/org-default.scss')
         .pipe($changed('./build/'))
+        .pipe($sass())
+        .pipe($concat('org-default.css'))
         .pipe($postcss(processors))
         .pipe($flatten())
         .pipe($.dest('./build'));
