@@ -312,7 +312,7 @@ pre.src {
 pre.src:before {
     display: block;
     position: absolute;
-    background-color: #ccccd0;
+    background-color: #7f7f7f;
     top: 0;
     right: 0;
     padding: 0.25em 0.5em;
@@ -349,6 +349,12 @@ pre.src-c:before {
 }
 pre.src-html:before {
     content: 'HTML'
+}
+pre.src-js:before {
+    content: 'Javascript'
+}
+pre.src-javascript:before {
+    content: 'Javascript'
 }
 
 .inlinetask {
