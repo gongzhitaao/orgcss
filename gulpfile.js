@@ -15,10 +15,13 @@ const cssnano = require('cssnano');
 const browsersync = require('browser-sync');
 const reload = (done) => {browsersync.reload(); done();};
 
-$.task('default', $.series(
-  () => D(['./build']),
-  $.parallel(pages, styles, misc),
-  $.parallel(serve, watch)));
+$.task('build', $.series(clean, $.parallel(pages, styles, misc)));
+$.task('default', $.series('build', $.parallel(serve, watch)));
+$.task('publish', $.series(publish));
+
+function clean() {
+  return D(['./build']);
+}
 
 // -------------------------------------------------------------------
 // watch
@@ -77,10 +80,9 @@ function styles() {
         .pipe($flatten())
         .pipe($.dest('./build'));
 
-  var org_custom = $.src(['./src/css/normalize.css',
-                          './src/css/org.scss'])
+  var org_custom = $.src('./src/css/org.scss')
         .pipe($changed('./build'))
-        .pipe($if('*.scss', $sass()))
+        .pipe($sass())
         .pipe($concat('org.css'))
         .pipe($postcss(processors))
         .pipe($flatten())
@@ -95,10 +97,7 @@ function misc() {
     .pipe($.dest('./build/img/'));
 }
 
-// -------------------------------------------------------------------
-// copy to gh-pages
-// -------------------------------------------------------------------
-
-$.task('copy', $.series(
-  () => D(['../gh-pages/*'], {force: true}),
-  () => $.src('./build/**/*').pipe($.dest('../gh-pages'))));
+function publish() {
+  D(['../gh-pages/*'], {force: true});
+  return $.src('./build/**/*').pipe($.dest('../gh-pages'));
+}

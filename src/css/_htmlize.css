@@ -188,6 +188,20 @@ packages loaded and default light theme */
     color: #8b008b;
     text-decoration: underline;
 }
+.org-makefile-makepp-perl {
+    /* makefile-makepp-perl */
+    background-color: #bfefff;
+}
+.org-makefile-shell {
+}
+.org-makefile-space {
+    /* makefile-space */
+    background-color: #ff69b4;
+}
+.org-makefile-targets {
+    /* makefile-targets */
+    color: #0000ff;
+}
 .org-match {
     /* match */
     background-color: #ffff00;

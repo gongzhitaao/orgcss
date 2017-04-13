@@ -1,3 +1,4 @@
+@import "normalize";
 @import "include-media";
 @import "htmlize";
 
@@ -299,20 +300,20 @@ pre {
     font-family: $monospace;
     margin: 1.2em;
     padding: 8pt;
+    font-size: $code-size;
 }
 
 pre.src {
     overflow: auto;
     padding-top: 1.2em;
     position: relative;
-    font-size: $code-size;
 }
 
 /* from http://demo.thi.ng/org-spec/ */
 pre.src:before {
     display: block;
     position: absolute;
-    background-color: #7f7f7f;
+    background-color: #b3b3b3;
     top: 0;
     right: 0;
     padding: 0.25em 0.5em;
@@ -355,6 +356,9 @@ pre.src-js:before {
 }
 pre.src-javascript:before {
     content: 'Javascript'
+}
+pre.src-makefile:before {
+    content: 'Makefile'
 }
 
 .inlinetask {
