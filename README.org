@@ -14,7 +14,7 @@ controlled by the variable ~org-html-htmlize-output-type~.
 ** ~(setq org-html-htmlize-output-type 'inline-css)~
 
 This is the default setting.  It highlights the code according to the
-current Emacs theme you are using.  It directly apply color to the
+current Emacs theme you are using.  It directly applies color to the
 code with inline styles, e.g., ~<span style="color:
 0x000000">int</span>~.
 
@@ -70,10 +70,13 @@ addEventListener('DOMContentLoaded', hlf);
 
 ** ~(setq org-html-htmlize-output-type 'css)~
 
-This is my preferred way.  This is similar to the first optional,
-instead of using inline styles, this will assign classes to each
-component of the code, e.g., ~<span class="org-type">int</span>~, and
-you could create your own stylesheet for ~.org-type~.
+This is my preferred way.  If you use my org.css, then set this option
+in your init file and you are all set.
+
+  This is similar to the first optional, instead of using inline
+styles, this will assign classes to each component of the code, e.g.,
+~<span class="org-type">int</span>~, and you could create your own
+stylesheet for ~.org-type~.
 
 To obtain a list of all supported org classes, run
 ~M-x org-html-htmlize-generate-css~.  This will create a buffer
