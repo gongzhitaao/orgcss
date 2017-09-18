@@ -182,16 +182,6 @@ td.org-center {
     text-align: center;
 }
 
-code {
-    padding: 2px 5px;
-    margin: auto 1px;
-    border: 1px solid #DDD;
-    border-radius: 3px;
-    background-clip: padding-box;
-    color: #333;
-    font-size: $code-size;
-}
-
 blockquote {
     margin: 1em 2em;
     padding-left: 1em;
@@ -294,6 +284,16 @@ p.verse {
     margin-left: 3%;
 }
 
+:not(pre) > code {
+    padding: 2px 5px;
+    margin: auto 1px;
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    background-clip: padding-box;
+    color: #333;
+    font-size: $code-size;
+}
+
 pre {
     border: 1px solid #ccc;
     box-shadow: 3px 3px 3px #eee;
@@ -301,16 +301,13 @@ pre {
     margin: 1.2em;
     padding: 8pt;
     font-size: $code-size;
-}
-
-pre.src {
     overflow: auto;
     padding-top: 1.2em;
     position: relative;
 }
 
 /* from http://demo.thi.ng/org-spec/ */
-pre.src:before {
+pre>code:before {
     display: block;
     position: absolute;
     background-color: #b3b3b3;
@@ -323,41 +320,37 @@ pre.src:before {
     font-size: $code-size;
 }
 
-pre.src:hover:before {
-    display: inline;
-}
-
-pre.src-sh:before {
+pre>code.src-sh:before {
     content: 'sh';
 }
-pre.src-bash:before {
+pre>code.src-bash:before {
     content: 'bash';
 }
-pre.src-emacs-lisp:before {
+pre>code.src-emacs-lisp:before {
     content: 'Emacs Lisp';
 }
-pre.src-R:before {
+pre>code.src-R:before {
     content: 'R';
 }
-pre.src-org:before {
+pre>code.src-org:before {
     content: 'Org';
 }
-pre.src-cpp:before {
+pre>code.src-cpp:before {
     content: 'C++';
 }
-pre.src-c:before {
+pre>code.src-c:before {
     content: 'C';
 }
-pre.src-html:before {
+pre>code.src-html:before {
     content: 'HTML'
 }
-pre.src-js:before {
+pre>code.src-js:before {
     content: 'Javascript'
 }
-pre.src-javascript:before {
+pre>code.src-javascript:before {
     content: 'Javascript'
 }
-pre.src-makefile:before {
+pre>code.src-makefile:before {
     content: 'Makefile'
 }
 
