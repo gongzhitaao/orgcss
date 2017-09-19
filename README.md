@@ -55,7 +55,7 @@ by the variable `org-html-htmlize-output-type`.
     To obtain a list of all supported org classes, run <kbd>M-x
     org-html-htmlize-generate-css</kbd>.  This will create a buffer containing
     all the available org style class names in the current Emacs session (refer
-    to [src/css/_htmlize.css]([src/css/_htmlize.css]) for an example).
+    to [src/css/_htmlize.css](src/css/_htmlize.css) for an example).
 
 ## Related
 
