@@ -11,13 +11,12 @@ $max-width: 700px;
 
 body {
     width: 95%;
-    margin: 2%;
-    font: normal normal normal 16px/1.6em $sans-serif;
+    margin: 2% auto;
+    font: normal normal normal 18px/1.6em $serif;
     color: #333;
 
     @include media('>tablet') {
         width: $max-width;
-        margin-left: 5vw;
     }
 }
 
@@ -97,11 +96,6 @@ figure {
 img {
     max-width: 100%;
     vertical-align: middle;
-
-    @include media('>tablet') {
-        max-width: 85vw;
-        margin: auto;
-    }
 }
 
 .MathJax_Display {
@@ -113,11 +107,11 @@ img {
 h1,h2,h3,h4,h5,h6 {
     color: #A5573E;
     line-height: 1.6em;
-    font-family: $serif;
+    font-family: $sans-serif;
 }
 
 h4,h5,h6 {
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
 dt {
@@ -220,8 +214,8 @@ kbd {
     font-family: $monospace;
 }
 
-/* Because tag span is set to float.  This is more like a hacking.
-Maybe we need a cleaner solution. */
+/* Because tag span is set to float.  This is more like a hacking.  Maybe we
+   need a cleaner solution. */
 #table-of-contents li {
     clear: both;
 }
