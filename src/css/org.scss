@@ -7,7 +7,7 @@ $serif: Georgia, serif;
 $monospace: Lucida Console, monospace;
 $code-size: 80%;
 $smaller: 90%;
-$max-width: 700px;
+$max-width: 710px;
 
 body {
     width: 95%;
@@ -288,65 +288,126 @@ p.verse {
     font-size: $code-size;
 }
 
-pre {
+.org-src-container {
     border: 1px solid #ccc;
     box-shadow: 3px 3px 3px #eee;
     font-family: $monospace;
-    margin: 1.2em;
-    padding: 8pt;
     font-size: $code-size;
-    overflow: auto;
-    padding-top: 1.2em;
+    margin: 1em auto;
+    padding: 1em 10px;
     position: relative;
 }
 
-/* from http://demo.thi.ng/org-spec/ */
-pre>code:before {
+.org-src-container>pre {
+    overflow: auto;
+}
+
+.org-src-container>pre:before {
     display: block;
     position: absolute;
     background-color: #b3b3b3;
     top: 0;
     right: 0;
-    padding: 0.25em 0.5em;
+    padding: 0 0.5em;
     border-bottom-left-radius: 8px;
     border: 0;
     color: white;
     font-size: $code-size;
 }
 
-pre>code.src-sh:before {
+.org-src-container>pre.src-sh:before {
     content: 'sh';
 }
-pre>code.src-bash:before {
+.org-src-container>pre.src-bash:before {
     content: 'bash';
 }
-pre>code.src-emacs-lisp:before {
+.org-src-container>pre.src-emacs-lisp:before {
     content: 'Emacs Lisp';
 }
-pre>code.src-R:before {
+.org-src-container>pre.src-R:before {
     content: 'R';
 }
-pre>code.src-org:before {
+.org-src-container>pre.src-org:before {
     content: 'Org';
 }
-pre>code.src-cpp:before {
+.org-src-container>pre.src-cpp:before {
     content: 'C++';
 }
-pre>code.src-c:before {
+.org-src-container>pre.src-c:before {
     content: 'C';
 }
-pre>code.src-html:before {
+.org-src-container>pre.src-html:before {
     content: 'HTML'
 }
-pre>code.src-js:before {
+.org-src-container>pre.src-js:before {
     content: 'Javascript'
 }
-pre>code.src-javascript:before {
+.org-src-container>pre.src-javascript:before {
     content: 'Javascript'
 }
-pre>code.src-makefile:before {
+.org-src-container>pre.src-makefile:before {
     content: 'Makefile'
 }
+
+// pre {
+//     border: 1px solid #ccc;
+//     box-shadow: 3px 3px 3px #eee;
+//     font-family: $monospace;
+//     margin: 1.2em;
+//     padding: 8pt;
+//     font-size: $code-size;
+//     overflow: auto;
+//     padding-top: 1.2em;
+//     position: relative;
+// }
+
+/* from http://demo.thi.ng/org-spec/ */
+// pre>code:before {
+//     display: block;
+//     position: absolute;
+//     background-color: #b3b3b3;
+//     top: 0;
+//     right: 0;
+//     padding: 0.25em 0.5em;
+//     border-bottom-left-radius: 8px;
+//     border: 0;
+//     color: white;
+//     font-size: $code-size;
+// }
+
+// pre>code.src-sh:before {
+//     content: 'sh';
+// }
+// pre>code.src-bash:before {
+//     content: 'bash';
+// }
+// pre>code.src-emacs-lisp:before {
+//     content: 'Emacs Lisp';
+// }
+// pre>code.src-R:before {
+//     content: 'R';
+// }
+// pre>code.src-org:before {
+//     content: 'Org';
+// }
+// pre>code.src-cpp:before {
+//     content: 'C++';
+// }
+// pre>code.src-c:before {
+//     content: 'C';
+// }
+// pre>code.src-html:before {
+//     content: 'HTML'
+// }
+// pre>code.src-js:before {
+//     content: 'Javascript'
+// }
+// pre>code.src-javascript:before {
+//     content: 'Javascript'
+// }
+// pre>code.src-makefile:before {
+//     content: 'Makefile'
+// }
 
 .inlinetask {
     background: #ffffcc;
