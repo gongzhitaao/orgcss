@@ -4,6 +4,7 @@ OrgCSS - Stylesheet for Org-exported HTML
 ## Table of Contents
 
 - [Usage](#usage)
+- [Caveats](#caveats)
 - [Code Highlight](#code-highlight)
 - [Related](#related)
 
@@ -14,6 +15,12 @@ Add the following setup to your org file to use the stylesheet.
 ```org
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://gongzhitaao.org/orgcss/org.css"/>
 ```
+
+## Caveats
+
+As the [Orgmode](http://orgmode.org/) is frequently updated, the structure of
+the exported source code is changed drastically.  As a result, I added tags
+(since Orgmode v9.1.4) to indicate the corresponding Orgmode version.
 
 ## Code Highlight
 
