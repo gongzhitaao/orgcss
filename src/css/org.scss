@@ -345,8 +345,188 @@ p.verse {
 .org-src-container>pre.src-javascript:before {
     content: 'Javascript'
 }
+
+// More languages from http://orgmode.org/worg/org-contrib/babel/languages.html
+
+.org-src-container>pre.src-abc:before {
+    content: 'ABC';
+}
+.org-src-container>pre.src-asymptote:before {
+    content: 'Asymptote';
+}
+.org-src-container>pre.src-awk:before {
+    content: 'Awk';
+}
+.org-src-container>pre.src-C:before {
+    content: 'C';
+}
+.org-src-container>pre.src-calc:before {
+    content: 'Calc';
+}
+.org-src-container>pre.src-clojure:before {
+    content: 'Clojure';
+}
+.org-src-container>pre.src-comint:before {
+    content: 'comint';
+}
+.org-src-container>pre.src-css:before {
+    content: 'CSS';
+}
+.org-src-container>pre.src-D:before {
+    content: 'D';
+}
+.org-src-container>pre.src-ditaa:before {
+    content: 'Ditaa';
+}
+.org-src-container>pre.src-dot:before {
+    content: 'Dot';
+}
+.org-src-container>pre.src-ebnf:before {
+    content: 'ebnf';
+}
+.org-src-container>pre.src-forth:before {
+    content: 'Forth';
+}
+.org-src-container>pre.src-F90:before {
+    content: 'Fortran';
+}
+.org-src-container>pre.src-gnuplot:before {
+    content: 'Gnuplot';
+}
+.org-src-container>pre.src-haskell:before {
+    content: 'Haskell';
+}
+.org-src-container>pre.src-io:before {
+    content: 'Io';
+}
+.org-src-container>pre.src-java:before {
+    content: 'Java';
+}
+.org-src-container>pre.src-latex:before {
+    content: 'LaTeX';
+}
+.org-src-container>pre.src-ledger:before {
+    content: 'Ledger';
+}
+.org-src-container>pre.src-ly:before {
+    content: 'Lilypond';
+}
+.org-src-container>pre.src-lisp:before {
+    content: 'Lisp';
+}
 .org-src-container>pre.src-makefile:before {
-    content: 'Makefile'
+    content: 'Make';
+}
+.org-src-container>pre.src-matlab:before {
+    content: 'Matlab';
+}
+.org-src-container>pre.src-max:before {
+    content: 'Maxima';
+}
+.org-src-container>pre.src-mscgen:before {
+    content: 'Mscgen';
+}
+.org-src-container>pre.src-Caml:before {
+    content: 'Objective';
+}
+.org-src-container>pre.src-octave:before {
+    content: 'Octave';
+}
+.org-src-container>pre.src-org:before {
+    content: 'Org';
+}
+.org-src-container>pre.src-perl:before {
+    content: 'Perl';
+}
+.org-src-container>pre.src-picolisp:before {
+    content: 'Picolisp';
+}
+.org-src-container>pre.src-plantuml:before {
+    content: 'PlantUML';
+}
+.org-src-container>pre.src-python:before {
+    content: 'Python';
+}
+.org-src-container>pre.src-ruby:before {
+    content: 'Ruby';
+}
+.org-src-container>pre.src-sass:before {
+    content: 'Sass';
+}
+.org-src-container>pre.src-scala:before {
+    content: 'Scala';
+}
+.org-src-container>pre.src-scheme:before {
+    content: 'Scheme';
+}
+.org-src-container>pre.src-screen:before {
+    content: 'Screen';
+}
+.org-src-container>pre.src-sed:before {
+    content: 'Sed';
+}
+.org-src-container>pre.src-shell:before {
+    content: 'shell';
+}
+.org-src-container>pre.src-shen:before {
+    content: 'Shen';
+}
+.org-src-container>pre.src-sql:before {
+    content: 'SQL';
+}
+.org-src-container>pre.src-sqlite:before {
+    content: 'SQLite';
+}
+.org-src-container>pre.src-stan:before {
+    content: 'Stan';
+}
+.org-src-container>pre.src-vala:before {
+    content: 'Vala';
+}
+.org-src-container>pre.src-axiom:before {
+    content: 'Axiom';
+}
+.org-src-container>pre.src-browser:before {
+    content: 'HTML';
+}
+.org-src-container>pre.src-cypher:before {
+    content: 'Neo4j';
+}
+.org-src-container>pre.src-elixir:before {
+    content: 'Elixir';
+}
+.org-src-container>pre.src-request:before {
+    content: 'http';
+}
+.org-src-container>pre.src-ipython:before {
+    content: 'iPython';
+}
+.org-src-container>pre.src-kotlin:before {
+    content: 'Kotlin';
+}
+.org-src-container>pre.src-Flavored Erlang  lfe:before {
+    content: 'Lisp';
+}
+.org-src-container>pre.src-mongo:before {
+    content: 'MongoDB';
+}
+.org-src-container>pre.src-prolog:before {
+    content: 'Prolog';
+}
+.org-src-container>pre.src-rec:before {
+    content: 'rec';
+}
+.org-src-container>pre.src-ML  sml:before {
+    content: 'Standard';
+}
+.org-src-container>pre.src-Translate  translate:before {
+    content: 'Google';
+}
+.org-src-container>pre.src-typescript:before {
+    content: 'Typescript';
+}
+.org-src-container>pre.src-rust:before {
+    content: 'Rust';
 }
 
 // pre {
