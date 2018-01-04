@@ -98,6 +98,5 @@ function misc() {
 }
 
 function publish() {
-  D(['../gh-pages/*'], {force: true});
-  return $.src('./build/**/*').pipe($.dest('../gh-pages'));
+  return $.src('./build/**/*').pipe($.dest('./'));
 }
