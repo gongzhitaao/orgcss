@@ -194,6 +194,9 @@ Article abstract goes here.
 
 Your content goes here.
 
+# note the ignore tag
+,* Refrences                                                          :ignore:
+
 # prints out bibliograph, if any, with bibtex2html.  The first parameter is the
 # bibliograph file name without .bib extension, the second is the reference
 # style.  The rest parameters are parsed to `bibtex2html'.  Refer to the
@@ -332,7 +335,7 @@ But we got
 
 Unless a patch is submitted, we may need to manually adjust this weird result.
 
-** Bibliography in Wrong Section
+** +Bibliography in Wrong Section+                                     :solved:
 :PROPERTIES:
 :CUSTOM_ID: sec:bibliograph-in-wrong-section
 :END:
@@ -375,9 +378,11 @@ But we got
 #+END_SRC
 
 The problem is that the =#+BIBLIOGRAPHY= command is always ignored unless it is
-belonged to a section.  This is due to the internal implementation of keyword
-parser of =ox-html=.  Currently hacking some [[https://github.com/gongzhitaao/orgcss/blob/master/gulpfile.js#L48][post-processing code]] is the only
-solution if you do not want to do it manually.
+belonged to a section.  +This is due to the internal implementation of keyword+
++parser of =ox-html=.  Currently hacking some [post-processing code is the only+
++solution if you do not want to do it manually+.
+
+This problem is solved by adding =ignore= tag.  See the above template.
 
 ** Wrong Back Reference
 :PROPERTIES:

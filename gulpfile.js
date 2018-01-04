@@ -3,7 +3,6 @@ const D = require('del');
 const $ = require('gulp');
 const $changed = require('gulp-changed');
 const $concat = require('gulp-concat');
-const $dom = require('gulp-dom');
 const $flatten = require('gulp-flatten');
 const $if = require('gulp-if');
 const $htmlmin = require('gulp-htmlmin');
@@ -48,15 +47,6 @@ function serve() {
 function pages() {
   return $.src('./src/index.html')
     .pipe($changed('./build'))
-    .pipe($dom(function() {
-      var doc = this;
-      var footnotes = doc.getElementById('footnotes');
-      var content = doc.getElementById('content');
-      var bibliography = doc.getElementById('bibliography');
-      if (bibliography)
-        content.insertBefore(bibliography, footnotes);
-      return doc;
-    }))
     .pipe($htmlmin({
       removeComments: true,
       collapseWhitespace: true,
