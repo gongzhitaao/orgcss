@@ -47,13 +47,14 @@ dl {
 
 .title {
     text-align: center;
-    margin: auto;
+    margin: 0.8em auto;
     color: black;
 }
 
 .subtitle {
     text-align: center;
     font-size: 1.1em;
+    line-height: 1.4;
     font-weight: bold;
 }
 
@@ -617,7 +618,9 @@ p.verse {
     display: block;
 }
 
-@media screen and (min-width: 768px) {
-    display: inline;
-    float: right;
+@media screen and (min-width: 600px) {
+    .creator {
+        display: inline;
+        float: right;
+    }
 }

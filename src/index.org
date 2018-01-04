@@ -418,7 +418,9 @@ Some styles are borrowed from the following projects.
 - [[http://demo.thi.ng/org-spec/][org-spec]]
 - [[http://doc.norang.ca/org-mode.html][Organize Your Life In Plain Text!]]
 
-#+BIBLIOGRAPHY: ref.bib plain option:-nobibsource limit:t option:-nokeywords
+* References                                                         :ignore:
+
+#+BIBLIOGRAPHY: ref.bib plain limit:t option:-nokeywords
 
 * Footnotes
 
