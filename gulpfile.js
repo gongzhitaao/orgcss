@@ -2,15 +2,10 @@ const D = require('del');
 
 const $ = require('gulp');
 const $changed = require('gulp-changed');
-const $concat = require('gulp-concat');
 const $flatten = require('gulp-flatten');
-const $if = require('gulp-if');
 const $htmlmin = require('gulp-htmlmin');
 const $postcss = require('gulp-postcss');
-const $sass = require('gulp-sass');
 
-const merge = require('merge-stream');
-const cssnano = require('cssnano');
 const browsersync = require('browser-sync');
 const reload = (done) => {browsersync.reload(); done();};
 
@@ -27,8 +22,8 @@ function clean() {
 // -------------------------------------------------------------------
 
 function watch() {
-  $.watch(['./src/index.html'], $.series(pages, reload));
-  $.watch(['./src/css/*.css', './src/css/*.scss'],
+  $.watch('./src/index.html', $.series(pages, reload));
+  $.watch('./src/css/*.css',
           $.series(styles, reload));
   $.watch(['./src/img/*'], $.series(misc, reload));
 }
@@ -58,27 +53,15 @@ function pages() {
 }
 
 function styles() {
-  var processors = [
-    cssnano({autoprefixer: {browsers: ['last 2 version'], add: true},
-             discardComments: {removeAll: true}})];
-
-  var org_default = $.src('./src/css/org-default.scss')
-        .pipe($changed('./build/'))
-        .pipe($sass())
-        .pipe($concat('org-default.css'))
-        .pipe($postcss(processors))
-        .pipe($flatten())
-        .pipe($.dest('./build'));
-
-  var org_custom = $.src('./src/css/org.scss')
-        .pipe($changed('./build'))
-        .pipe($sass())
-        .pipe($concat('org.css'))
-        .pipe($postcss(processors))
-        .pipe($flatten())
-        .pipe($.dest('./build'));
-
-  return merge(org_default, org_custom);
+  return $.src(['./src/css/org-default.css', './src/css/org.css'])
+    .pipe($changed('./build/'))
+    .pipe($postcss([
+      require('precss'),
+      require('cssnano')({
+        autoprefixer: {browsers: ['last 2 version'], add: true},
+        discardComments: {removeAll: true}})]))
+    .pipe($flatten())
+    .pipe($.dest('./build'));
 }
 
 function misc() {

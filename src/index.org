@@ -20,8 +20,10 @@ function swapStyle(css){
     document.getElementById('pagestyle').setAttribute('href', css);
 }
 </script>
-<button onclick="swapStyle('org.css')">Customized</button>
-<button onclick="swapStyle('org-default.css')">Default</button>
+<div style="margin: 1em auto;">
+  <button onclick="swapStyle('org.css')">Customized</button>
+  <button onclick="swapStyle('org-default.css')">Default</button>
+</div>
 #+END_EXPORT
 
 #+BEGIN_abstract

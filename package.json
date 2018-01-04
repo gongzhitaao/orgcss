@@ -20,14 +20,14 @@
     "del": "^2.2.2",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-changed": "^1.3.2",
-    "gulp-concat": "^2.6.0",
     "gulp-flatten": "^0.3.1",
     "gulp-htmlmin": "^2.0.0",
-    "gulp-if": "^2.0.1",
     "gulp-postcss": "^6.2.0",
     "gulp-sass": "^2.3.2",
-    "merge-stream": "^1.0.0",
-    "normalize.css": "^4.1.1"
+    "htmlize": "^1.0.0",
+    "normalize.css": "^4.1.1",
+    "postcss-import": "^11.0.0",
+    "precss": "^2.0.0"
   },
   "dependencies": {},
   "bugs": {
