@@ -13,7 +13,7 @@ OrgCSS - Stylesheet for Org-exported HTML
 Add the following setup to your org file to use the stylesheet.
 
 ```org
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://gongzhitaao.org/orgcss/org.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 ```
 
 ## Caveats
