@@ -28,7 +28,7 @@ function swapStyle(css){
 
 #+BEGIN_abstract
 
-This article serves as a complete demonstration for my [[http:./org.css][org.css]], a simple and
+This article serves as a complete demonstration for my [[file:org.css][org.css]], a simple and
 clean stylesheet for org-exported HTML file.  You may switch between the default
 style provided by Emacs Org mode, i.e., styles specified in the variable
 =org-html-style-default= and my customized stylesheet using the button at the
@@ -52,7 +52,7 @@ cite:dominik2003-org.
 #+END_QUOTE
 
 Org mode was created by Carsten Dominik back in 2003.  It is a built-in major
-mode in [[http://www.gnu.org/software/emacs/][Emacs]].  It's similar to [[http://daringfireball.net/projects/markdown/syntax][markdown]] cite:gruber2004-markdown where all
+mode in [[http://www.gnu.org/software/emacs/][Emacs]].  It's similar to [[http://daringfireball.net/projects/markdown/syntax][markdown]] cite:gruber2004-markdown, where all
 editing is done in plain text with some character markups to decorate texts and
 finally the text file can be exported to some other formats, e.g., HTML.  The
 philosophy is that we can concentrate on the contents with as few distraction
@@ -121,16 +121,14 @@ whatever simply boil down to personal preference.
 1. Org file is a simple text file which can be processed efficiently by external
    programs.
 2. It has good built-in support from Emacs, and
-3. can be exported to various formats, /TeX/, /PDF/ and /HTML/.
+3. can be exported to various formats, /TeX/, /PDF/ and /HTML/.  Except for some
+   special cases where dedicated styles are needed, say academic papers, the
+   default export styles with simple tweaks usually satisfy my needs.  However,
+   the default style provided by org html exporter is simple /boring/.  So I
+   decide to tweak the stylesheet a little bit to make it /clean/, /simple/ and
+   more /eye appealing/.
 
-   Except for some special cases where dedicated styles are needed, say academic
-   papers, the default export styles with simple tweaks usually satisfy my
-   needs.  However, the default style provided by org html exporter is simple
-   /boring/.  So I decide to tweak the stylesheet a little bit to make it
-   /clean/, /simple/ and more /eye appealing/.
-
-   Source code of this file is available at
-   https://github.com/gongzhitaao/orgcss.
+Source code of this file is available at https://github.com/gongzhitaao/orgcss.
 
 * Setup
 :PROPERTIES:
@@ -162,18 +160,23 @@ rendering.
 
 Here are some notes about the above utility.
 
-- Bibtex2html is optional if no citation is required.  Citation syntax is the
-  same as in LaTeX, i.e., =\cite{key}=.  To use this functionality, you need to
-  include the following elisp code in your configuration.
+- ~bibtex2html~ is optional if no citation is required.  Citation syntax is
+  =\cite{key}=, or =cite:key=.  To use this functionality, you need to include
+  the following elisp code in your configuration.
 
   #+BEGIN_SRC emacs-lisp
 (require 'ox-bibtex)
   #+END_SRC
 
-- I use [[https://www.mathjax.org/][MathJax]] inline rendering for equations despite of its speed.  It is
-  rumored that [[http://khan.github.io/KaTeX/][KaTeX]] loads and renders much faster than MathJax, however the
-  latter supports only a subset of LaTeX syntax.  See the [[http://www.intmath.com/cg5/katex-mathjax-comparison.php][comparison]] between the
-  two.  Anyway, I do not have that many equations to show off.
+  I do not have a better option for HTML bibtex export.  I think an ideal
+  solution is pure lisp-based or Javascript-based.  The problem with
+  Javascript-based solution is that the back-reference might be difficult to
+  implement.
+
+- I use [[https://www.mathjax.org/][MathJax]] inline rendering for equations despite of its speed.  It is said
+  that [[http://khan.github.io/KaTeX/][KaTeX]] loads and renders faster than MathJax, however, the former supports
+  only a subset of \(\LaTeX\) syntax.  See the [[http://www.intmath.com/cg5/katex-mathjax-comparison.php][comparison]] between the two.
+  Anyway, I do not have that many equations to show off.
 
 ** Org Templates
 :PROPERTIES:
@@ -381,10 +384,22 @@ But we got
 
 The problem is that the =#+BIBLIOGRAPHY= command is always ignored unless it is
 belonged to a section.  +This is due to the internal implementation of keyword+
-+parser of =ox-html=.  Currently hacking some [post-processing code is the only+
++parser of =ox-html=.  Currently hacking some post-processing code is the only+
 +solution if you do not want to do it manually+.
 
-This problem is solved by adding =ignore= tag.  See the above template.
+This problem is solved as follows.
+
+1. Add the following snippet to your ~init.el~
+
+   #+BEGIN_SRC emacs-lisp
+(require 'ox-extra)
+(ox-extras-activate '(ignore-headlines))
+   #+END_SRC
+
+2. adding =ignore= tag to whichever headline you want to ignore.  Note that this
+   is different from the =COMMENT= in Org mode in that =COMMENT= ignores the
+   head and contents in its section, while =ignore= only ignores the headline
+   but keeps the contents when exporting.  See the above template.
 
 ** Wrong Back Reference
 :PROPERTIES:
@@ -397,7 +412,31 @@ utility =ox-bibtex= directly inserts contents of =ref.html= to the current
 exported html.  Now when you click links in the exported html, you will be
 directed to =ref_bib.html=.  And when expecting to get back to the exported html
 by clicking links in =ref_bib.html=, you will be instead directed to =ref.html=.
-My solution is to remove the bibliograph source with =option:-nobibsource=.
+My solution is to +remove the bibliograph source with =option:-nobibsource=+
+replace the link in =ref_bib.html= with when compiling the HTML (see this
+[[https://github.com/gongzhitaao/orgcss/blob/master/gulpfile.js#L49][gulpfile.js]]), it is a hacky way though.
+
+** ~fci-mode~ Issue
+:PROPERTIES:
+:CUSTOM_ID: h2-fci-mode-issue
+:END:
+
+If you use [[https://github.com/alpaker/Fill-Column-Indicator][~fci-mode~]], and it is turned on in the major code of your
+to-be-exported source code section, you will notice some dummy characters
+at each newline (as of ~Org-v9.1.14~) like the followings.
+
+#+BEGIN_SRC c++
+#include <iostream>
+using namesapce std;
+
+int main()
+{
+  return 0;
+}
+#+END_SRC
+
+I did not have this issue with previous version of ~org-mode~ and ~fci-mode~.
+Simply turning off the ~fci-mode~ for major mode solves the problem.
 
 * Conclusion
 :PROPERTIES:
@@ -415,12 +454,16 @@ necessary.
 
 Some styles are borrowed from the following projects.
 
-- [[http://demo.thi.ng/org-spec/][org-spec]]
-- [[http://doc.norang.ca/org-mode.html][Organize Your Life In Plain Text!]]
+1. [[https://github.com/fniessen/org-html-themes][fniessen/org-html-themes]]
+2. [[https://gist.github.com/mowen/326524][mowen/gist326524]]
+3. [[http://demo.thi.ng/org-spec/][org-spec]]
+4. [[http://doc.norang.ca/org-mode.html][Organize Your Life In Plain Text!]]
+5. [[https://github.com/thomasf/solarized-cs][thomasf/solarized-css]]
+6. [[http://orgmode.org/worg/org-web.html][Web Pages Made with Org-Mode]]
 
 * References                                                         :ignore:
 
-#+BIBLIOGRAPHY: ref.bib plain limit:t option:-nokeywords
+#+BIBLIOGRAPHY: ref plain
 
 * Footnotes
 

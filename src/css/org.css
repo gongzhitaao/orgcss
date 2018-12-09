@@ -122,7 +122,6 @@ img {
 }
 
 .MathJax_Display {
-    font-size: $smaller;
     margin: 0!important;
     width: $smaller!important;
 }

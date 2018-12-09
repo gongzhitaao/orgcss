@@ -15,7 +15,7 @@
   "author": "gongzhitaao",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.23.2",
+    "browser-sync": "^2.26.3",
     "cssnano": "^3.7.7",
     "del": "^2.2.2",
     "gulp": "github:gulpjs/gulp#4.0",
