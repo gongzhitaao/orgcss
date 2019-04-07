@@ -46,7 +46,7 @@ function pages() {
       minifyJS: true,
       minifyCSS: true}))
     .pipe(f)
-    .pipe($replace('ref.html', 'index.html'))
+    // .pipe($replace('ref.html', 'index.html'))
     .pipe(f.restore)
     .pipe($.dest('build'));
 }
@@ -71,5 +71,5 @@ function misc() {
 }
 
 function publish() {
-  return $.src('./build/**/*').pipe($.dest('./'));
+  return $.src('./build/**/*').pipe($.dest('docs/'));
 }
