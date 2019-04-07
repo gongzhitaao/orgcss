@@ -1,7 +1,7 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.MIT) [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](LICENSE.996ICU) [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
-
 OrgCSS - Stylesheet for Org-exported HTML
 =========================================
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.MIT) [![LICENSE](https://img.shields.io/badge/License-Anti%20996-blue.svg)](LICENSE.996ICU) [![996.icu](https://img.shields.io/badge/Link-996.icu-red.svg)](https://996.icu)
 
 ## Table of Contents
 
