@@ -206,7 +206,8 @@ Your content goes here.
 # bibliograph file name without .bib extension, the second is the reference
 # style.  The rest parameters are parsed to `bibtex2html'.  Refer to the
 # ox-bibtex document for further information.
-,#+BIBLIOGRAPHY: ref.bib plain option:-nobibsource limit:t option:-nokeywords
+
+,#+BIBLIOGRAPHY: ref plain limit:t option:-nokeywords
 
 # This is an automatically generated section if you use footnote.
 ,* Footnotes
@@ -463,7 +464,7 @@ Some styles are borrowed from the following projects.
 
 * References                                                         :ignore:
 
-#+BIBLIOGRAPHY: ref plain
+#+BIBLIOGRAPHY: ref plain limit:t option:-nokeywords
 
 * Footnotes
 
