@@ -422,22 +422,24 @@ replace the link in =ref_bib.html= with when compiling the HTML (see this
 :CUSTOM_ID: h2-fci-mode-issue
 :END:
 
-If you use [[https://github.com/alpaker/Fill-Column-Indicator][~fci-mode~]], and it is turned on in the major code of your
+If you use [[https://github.com/alpaker/Fill-Column-Indicator][ ~fci-mode~ ]], and it is turned on in the major code of your
 to-be-exported source code section, you will notice some dummy characters
-at each newline (as of ~Org-v9.1.14~) like the followings.
+at each newline (as of ~Org-v9.3.1~) as following.
 
 #+BEGIN_SRC c++
-#include <iostream>
-using namesapce std;
-
-int main()
-{
-  return 0;
-}
+#include <iostream>
+using namesapce std;
+
+int main()
+{
+  return 0;
+}
 #+END_SRC
 
-I did not have this issue with previous version of ~org-mode~ and ~fci-mode~.
-Simply turning off the ~fci-mode~ for major mode solves the problem.
+The workaround to this issue: https://emacs.stackexchange.com/q/44361 and some
+discussions on [[https://lists.gnu.org/archive/html/emacs-orgmode/2017-08/msg00342.html][emacs-orgmode maillist]].  I did not have this issue with previous
+version of ~org-mode~ and ~fci-mode~.  Simply turning off the ~fci-mode~ for major
+mode solves the problem.
 
 * Conclusion
 :PROPERTIES:
