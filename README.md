@@ -73,6 +73,6 @@ The CSS classes used by `ox-html` are documented [here](http://orgmode.org/manua
 1. [fniessen/org-html-themes](https://github.com/fniessen/org-html-themes)
 2. [mowen/gist326524](https://gist.github.com/mowen/326524)
 3. [Web Pages Made with Org-Mode](http://orgmode.org/worg/org-web.html)
-4. [thomasf/solarized-css](https://github.com/thomasf/solarized-cs)
+4. [thomasf/solarized-css](https://github.com/thomasf/solarized-css)
 5. [org-spec](http://demo.thi.ng/org-spec/)
 6. [Organize Your Life In Plain Text!](http://doc.norang.ca/org-mode.html)
