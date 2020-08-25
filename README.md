@@ -66,6 +66,9 @@ by the variable `org-html-htmlize-output-type`.
     all the available org style class names in the current Emacs session (refer
     to [src/css/htmlize.css](src/css/htmlize.css) for an example).
 
+    *Note: remember to `(setq org-html-head-include-default-style nil)` to avoid
+    any unexpected styles from the default styles, see [Issue #14](https://github.com/gongzhitaao/orgcss/issues/14)*.
+
 ## Related
 
 The CSS classes used by `ox-html` are documented [here](http://orgmode.org/manual/CSS-support.html).
