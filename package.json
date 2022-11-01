@@ -26,7 +26,7 @@
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "htmlize": "^1.0.0",
     "normalize.css": "^8.0.1",
     "postcss-import": "^12.0.1",
