@@ -458,6 +458,15 @@ p.verse {
 .org-src-container>pre.src-java:before {
     content: 'Java';
 }
+.org-src-container>pre.src-julia:before {
+    content: 'Julia';
+}
+.org-src-container>pre.src-jupyter-julia:before {
+    content: 'Julia';
+}
+.org-src-container>pre.src-jupyter-python:before {
+    content: 'Python';
+}
 .org-src-container>pre.src-latex:before {
     content: 'LaTeX';
 }
