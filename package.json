@@ -16,7 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.27.10",
-    "cssnano": "^4.1.10",
+    "cssnano": "^6.0.0",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-changed": "^4.0.2",
