@@ -15,7 +15,7 @@
   "author": "gongzhitaao",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^3.0.2",
+    "browser-sync": "^3.0.3",
     "cssnano": "^6.0.0",
     "del": "^5.1.0",
     "gulp": "^5.0.0",
