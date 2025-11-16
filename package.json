@@ -24,7 +24,7 @@
     "gulp-flatten": "^0.4.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^8.0.0",
+    "gulp-postcss": "^10.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^5.1.0",
     "htmlize": "^1.0.0",
